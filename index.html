@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portafolio de Paul Arturo Chancay Contreras · Cálculo Integral</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght=500;600;700&family=Inter:wght=400;500;600;700&family=JetBrains+Mono:wght=500&display=swap" rel="stylesheet">
 <style>
   :root{
     --azul-tinta:#0A2E5C;
@@ -34,7 +34,7 @@
   }
   h1,h2,h3,h4{font-family:'Space Grotesk',sans-serif; margin:0; color:var(--azul-tinta);}
   p{line-height:1.65; color:var(--texto-suave);}
-  a{color:var(--azul-profundo);}
+  a{color:var(--azul-profundo); text-decoration:none;}
   .mono{font-family:'JetBrains Mono',monospace;}
 
   /* ---------- NAV ---------- */
@@ -119,497 +119,269 @@
   .section-head h2{font-size:clamp(26px,3.2vw,36px); letter-spacing:-0.01em;}
   .section-head p{margin-top:12px; font-size:16px;}
 
-  /* concept banner */
-  .concept-banner{
-    background:var(--azul-hielo); border:1px solid var(--linea); border-radius:18px;
-    padding:28px 30px; margin-bottom:40px; display:grid; grid-template-columns:auto 1fr; gap:22px; align-items:flex-start;
+  /* ---------- CARDS ACORDEÓN ---------- */
+  .topics-container {display:flex; flex-direction:column; gap:16px;}
+  
+  .topic.card {
+    background:#fff; border:1px solid var(--linea); border-radius:16px;
+    padding:24px 28px; cursor:pointer; display:grid;
+    grid-template-columns:auto 1fr auto; gap:24px; align-items:center;
+    transition:.25s cubic-bezier(0.4, 0, 0.2, 1); position:relative;
   }
-  .concept-banner .icon{
-    width:46px; height:46px; border-radius:12px; background:var(--azul-profundo); color:#fff;
-    display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk'; font-weight:700; font-size:20px; flex-shrink:0;
+  .topic.card:hover {border-color:var(--azul-medio); background:var(--azul-hielo);}
+  
+  .topic.card .num {
+    font-family:'Space Grotesk'; font-size:24px; font-weight:700; color:var(--azul-medio);
+    background:var(--azul-hielo); width:48px; height:48px; border-radius:12px;
+    display:flex; align-items:center; justify-content:center;
   }
-  .concept-banner h4{font-size:16px; margin-bottom:6px;}
-  .concept-banner p{font-size:14.5px; margin:0;}
+  .topic.card h4 {font-size:19px; margin-bottom:4px;}
+  .topic.card p {margin:0; font-size:14.5px;}
+  .topic.card .toggle {
+    font-size:24px; font-weight:600; color:var(--azul-medio); transition:.25s;
+  }
 
-  /* topic grid */
-  .topics{display:grid; grid-template-columns:repeat(auto-fill, minmax(320px,1fr)); gap:18px;}
-  .topic-card{
-    background:#fff; border:1px solid var(--linea); border-radius:16px; padding:22px;
-    cursor:pointer; transition:.2s; position:relative;
+  /* Estado abierto del acordeón */
+  .topic.card.open {
+    border-color:var(--azul-profundo); background:#fff;
+    border-bottom-left-radius:0; border-bottom-right-radius:0; box-shadow:var(--sombra);
   }
-  .topic-card:hover{border-color:var(--azul-cielo); box-shadow:var(--sombra); transform:translateY(-2px);}
-  .topic-card .num{
-    font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--azul-medio);
-    background:var(--azul-hielo); display:inline-block; padding:3px 10px; border-radius:999px; margin-bottom:14px;
+  .topic.card.open .toggle {transform:rotate(45deg); color:var(--azul-tinta);}
+  
+  .topic-detail {
+    display:none; background:#fff; border:1px solid var(--azul-profundo);
+    border-top:none; border-bottom-left-radius:16px; border-bottom-right-radius:16px;
+    margin-top:-16px; margin-bottom:12px; box-shadow:var(--sombra);
   }
-  .topic-card h4{font-size:17.5px; line-height:1.3; margin-bottom:8px;}
-  .topic-card p{font-size:13.5px; margin:0;}
-  .topic-card .toggle{
-    position:absolute; top:20px; right:20px; width:28px; height:28px; border-radius:50%;
-    border:1px solid var(--linea); display:flex; align-items:center; justify-content:center;
-    font-size:16px; color:var(--azul-profundo); transition:.25s;
-  }
-  .topic-card.open .toggle{transform:rotate(45deg); background:var(--azul-profundo); color:#fff; border-color:var(--azul-profundo);}
+  .topic.card.open + .topic-detail {display:block;}
+  .detail-inner {padding:32px 36px 40px;}
 
-  .topic-detail{
-    max-height:0; overflow:hidden; transition:max-height .35s ease;
-    grid-column: 1 / -1;
+  .detail-inner h5 {
+    font-size:14px; text-transform:uppercase; letter-spacing:.06em;
+    color:var(--azul-profundo); margin:28px 0 12px;
   }
-  .topic-card.open + .topic-detail{max-height:5200px;}
-  .detail-inner{
-    background:#fff; border:1px solid var(--linea); border-top:none; border-radius:0 0 16px 16px;
-    margin-top:-12px; padding:26px 24px 28px;
-  }
-  .detail-inner h5{
-    font-size:12.5px; text-transform:uppercase; letter-spacing:.07em; color:var(--azul-medio);
-    margin-bottom:10px; font-family:'JetBrains Mono',monospace; font-weight:500;
-  }
-  .detail-inner .concepto{font-size:14.5px; margin-bottom:22px;}
-  .formula-box{
-    background:var(--azul-tinta); color:#EAF4FE; border-radius:12px; padding:16px 18px;
-    font-family:'JetBrains Mono',monospace; font-size:14.5px; margin-bottom:8px; overflow-x:auto; white-space:pre;
-  }
-  .formula-note{font-size:12.5px; color:var(--texto-suave); margin-bottom:22px;}
+  .detail-inner h5:first-of-type {margin-top:0;}
 
-  .graph-box{
+  .formula-box {
+    font-family:'JetBrains Mono', monospace; background:var(--azul-tinta);
+    color:#fff; padding:18px 22px; border-radius:12px; font-size:16px; overflow-x:auto;
+  }
+  .formula-note {font-size:13.5px; color:var(--texto-suave); margin-top:8px; font-style:italic;}
+
+  /* Gráficas */
+  .graph-box {
     background:var(--azul-hielo); border:1px solid var(--linea); border-radius:14px;
-    padding:18px; margin-bottom:24px; display:grid; grid-template-columns:1fr; gap:10px;
+    padding:20px; margin-top:20px; text-align:center;
   }
-  .graph-box svg{width:100%; height:auto; display:block;}
-  .graph-caption{font-size:12.5px; color:var(--texto-suave); text-align:center;}
+  .graph-caption {font-size:13px; color:var(--texto-suave); margin-top:10px;}
 
-  .exercise-box{
-    border:1px solid var(--linea); border-radius:14px; overflow:hidden; margin-bottom:22px;
+  /* Bloque de Ejercicios */
+  .exercise-box {
+    border:1px solid var(--linea); border-radius:14px; overflow:hidden; background:#fff;
   }
-  .exercise-head{
-    background:var(--azul-hielo); padding:14px 18px; border-bottom:1px solid var(--linea);
-    display:flex; align-items:center; gap:10px;
+  .exercise-head {
+    background:var(--azul-hielo-2); padding:12px 20px; display:flex; align-items:center; gap:12px;
   }
-  .exercise-head .tag{
-    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700; letter-spacing:.05em;
-    background:var(--azul-profundo); color:#fff; padding:3px 10px; border-radius:999px; text-transform:uppercase;
+  .exercise-head .tag {
+    background:var(--azul-profundo); color:#fff; font-size:11px; font-weight:700;
+    text-transform:uppercase; padding:3px 8px; border-radius:4px; letter-spacing:.04em;
   }
-  .exercise-head span.enun{font-size:14px; font-weight:600; color:var(--azul-tinta);}
-  .exercise-body{padding:16px 18px 18px; background:#fff;}
-  .exercise-step{
-    display:grid; grid-template-columns:26px 1fr; gap:10px; align-items:start; margin-bottom:10px; font-size:13.5px;
+  .exercise-head .enum {font-weight:600; font-size:14.5px;}
+  .exercise-body {padding:24px 24px;}
+  
+  .exercise-step {display:flex; gap:16px; margin-bottom:16px; align-items:flex-start;}
+  .exercise-step .dot {
+    background:var(--azul-hielo); color:var(--azul-profundo); font-weight:700;
+    width:26px; height:26px; border-radius:999px; display:flex;
+    align-items:center; justify-content:center; flex-shrink:0; font-size:13px;
   }
-  .exercise-step:last-child{margin-bottom:0;}
-  .exercise-step .dot{
-    width:22px; height:22px; border-radius:50%; background:var(--azul-hielo); color:var(--azul-profundo);
-    font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:700;
-    display:flex; align-items:center; justify-content:center; margin-top:1px;
+  .exercise-step .txt {font-size:14.5px; color:var(--texto); padding-top:2px;}
+  .exercise-result {
+    margin-top:20px; padding-top:16px; border-top:1px dashed var(--linea);
+    font-weight:700; color:var(--azul-tinta); font-size:15.5px;
   }
-  .exercise-step .txt{color:var(--texto);}
-  .exercise-step .txt .mono-line{
-    display:block; font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--azul-profundo);
-    background:var(--azul-hielo); padding:6px 10px; border-radius:8px; margin-top:5px; overflow-x:auto; white-space:pre;
+
+  /* Grid de Videos de YouTube */
+  .video-grid {display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:18px; margin-top:12px;}
+  .video-card {
+    border:1px solid var(--linea); border-radius:12px; overflow:hidden;
+    background:#fff; transition:.2s; display:flex; flex-direction:column;
   }
-  .exercise-result{
-    margin-top:12px; padding:12px 14px; border-radius:10px; background:var(--azul-tinta); color:#fff;
-    font-family:'JetBrains Mono',monospace; font-size:14px;
-  }
-  .video-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(240px,1fr)); gap:14px; margin-top:8px;}
-  .video-card{
-    border:1px solid var(--linea); border-radius:12px; overflow:hidden; background:var(--azul-hielo);
-    text-decoration:none; display:block; transition:.2s;
-  }
-  .video-card:hover{border-color:var(--azul-medio); transform:translateY(-2px);}
-  .video-thumb{
-    position:relative; aspect-ratio:16/9; background:var(--azul-profundo);
-  }
-  .video-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
-  .play{
+  .video-card:hover {transform:translateY(-2px); border-color:var(--azul-medio); box-shadow:var(--sombra);}
+  
+  .video-thumb {position:relative; padding-top:56.25%; background:#000; overflow:hidden;}
+  .video-thumb img {position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:.3s;}
+  .video-card:hover .video-thumb img {transform:scale(1.04); opacity:.85;}
+  
+  .video-thumb .play {
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
   }
-  .play span{
-    width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,0.92);
-    display:flex; align-items:center; justify-content:center; color:var(--azul-profundo); font-size:16px;
-    box-shadow:0 6px 16px rgba(10,46,92,0.35);
+  .video-thumb .play span {
+    background:rgba(15,76,156,0.9); color:#fff; width:44px; height:44px;
+    border-radius:999px; display:flex; align-items:center; justify-content:center;
+    font-size:14px; padding-left:3px; box-shadow:0 4px 12px rgba(0,0,0,0.3); transition:.2s;    
   }
-  .video-info{padding:10px 12px;}
-  .video-info .canal{font-size:11px; color:var(--azul-medio); font-weight:600; text-transform:uppercase; letter-spacing:.04em;}
-  .video-info .titulo{font-size:13px; color:var(--texto); font-weight:600; line-height:1.3; margin-top:2px;}
+  .video-card:hover .play span {transform:scale(1.1); background:var(--azul-medio);}
+  
+  .video-info {padding:14px 16px; flex-grow:1; display:flex; flex-direction:column; gap:4px;}
+  .video-info .canal {font-size:11px; font-weight:700; text-transform:uppercase; color:var(--azul-medio); letter-spacing:.04em;}
+  .video-info .titulo {font-size:13.5px; font-weight:600; color:var(--azul-tinta); line-height:1.4;}
 
-  /* Grande video destacado */
-  .featured-video{
-    display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:center;
-    background:linear-gradient(135deg, var(--azul-tinta), var(--azul-profundo));
-    border-radius:22px; padding:36px; color:#fff; margin-top:60px;
-  }
-  .featured-video h3{color:#fff; font-size:24px; margin-bottom:12px;}
-  .featured-video p{color:#CFE3F7; font-size:14.5px;}
-  .featured-video .btn-primary{background:#fff; color:var(--azul-tinta); margin-top:14px;}
-  .featured-video .btn-primary:hover{background:var(--azul-hielo);}
-  .featured-frame{border-radius:14px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.35); aspect-ratio:16/9;}
-  .featured-frame iframe{width:100%; height:100%; border:0; display:block;}
-
-  /* Aprendizaje section */
-  .aprendizaje{
-    background:var(--azul-hielo); border-radius:22px; padding:44px; margin-top:20px;
-  }
-  .aprendizaje-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:28px;}
-  .aprendizaje-grid .item{background:#fff; border:1px solid var(--linea); border-radius:16px; padding:22px;}
-  .aprendizaje-grid .item .n{
-    font-family:'Space Grotesk'; font-weight:700; font-size:24px; color:var(--azul-cielo); margin-bottom:10px;
-  }
-  .aprendizaje-grid .item h4{font-size:15.5px; margin-bottom:6px;}
-  .aprendizaje-grid .item p{font-size:13.5px; margin:0;}
-
-  footer{
-    border-top:1px solid var(--linea); margin-top:60px; padding:36px 28px;
-    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
-    max-width:1180px; margin-left:auto; margin-right:auto;
-  }
-  footer p{font-size:13px; margin:0;}
-  footer .socials{display:flex; gap:14px;}
-  footer .socials a{font-size:13px; text-decoration:none; font-weight:600; color:var(--azul-profundo);}
-
-  @media(max-width:900px){
-    .hero{grid-template-columns:1fr;}
-    .featured-video{grid-template-columns:1fr;}
-    .aprendizaje-grid{grid-template-columns:1fr;}
-    nav ul{display:none;}
+  /* ---------- FOOTER ---------- */
+  footer {
+    border-top:1px solid var(--linea); background:var(--azul-hielo);
+    padding:40px 28px; text-align:center; font-size:14px; color:var(--texto-suave); margin-top:80px;
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-wrap">
-    <div class="brand">
-      <div class="mark">∫</div>
+  <header>
+    <div class="nav-wrap">
+      <div class="brand">
+        <div class="mark">∫</div>
+        <div>
+          <span>Cálculo Integral</span>
+          <small>Portafolio de Aprendizaje</small>
+        </div>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#parcial1">Primer Parcial</a></li>
+          <li><a href="#parcial2">Segundo Parcial</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
       <div>
-        <span>Cálculo Integral</span>
-        <small>Portafolio de Paul Arturo Chancay Contreras</small>
+        <div class="eyebrow">Facultad de Sistemas de Información</div>
+        <h1>Portafolio Digital Académico de <em>Cálculo Integral</em></h1>
+        <p class="lead">Espacio de recopilación interactiva, teorías esenciales, metodologías analíticas y ejercicios resueltos a lo largo del periodo lectivo.</p>
+        <div class="hero-actions">
+          <a href="#parcial1" class="btn btn-primary">Ver Temario Abierto</a>
+          <a href="https://github.com" target="_blank" class="btn btn-ghost">Repositorio GitHub</a>
+        </div>
       </div>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#primer-parcial">Primer Parcial</a></li>
-        <li><a href="#segundo-parcial">Segundo Parcial</a></li>
-        <li><a href="#aprender">Sobre la materia</a></li>
-      </ul>
-    </nav>
-    <a href="#primer-parcial" class="btn btn-primary" style="padding:10px 20px;">Ver temario</a>
-  </div>
-</header>
-
-<!-- ===================== HERO ===================== -->
-<section id="inicio" class="hero">
-  <div>
-    <span class="eyebrow">Cálculo Integral · Temario completo</span>
-    <h1>Del área bajo la curva<br> a los <em>sólidos de revolución</em></h1>
-    <p class="lead">Un portafolio con los temas vistos en el Primer y Segundo Parcial de Cálculo Integral: conceptos claros, fórmulas clave y videos seleccionados para reforzar cada tema.</p>
-    <div class="hero-actions">
-      <a href="#primer-parcial" class="btn btn-primary">Ir a Primer Parcial →</a>
-      <a href="#segundo-parcial" class="btn btn-ghost">Ir a Segundo Parcial →</a>
-    </div>
-  </div>
-  <div class="hero-card">
-    <h3>¿Qué es una integral?</h3>
-    <div class="hero-formula">∫ f(x) dx = F(x) + C</div>
-    <p style="color:#DCEEFF; font-size:14px; margin:0;">La integración es la operación inversa a la derivación. Permite calcular áreas, volúmenes, longitudes de curva y funciones de posición a partir de la velocidad o la aceleración.</p>
-    <div class="hero-stats">
-      <div><b>10</b><span>Temas totales</span></div>
-      <div><b>2</b><span>Parciales</span></div>
-      <div><b>5</b><span>Temas por parcial</span></div>
-      <div><b>+25</b><span>Videos de apoyo</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== PRIMER PARCIAL ===================== -->
-<section id="primer-parcial" class="block">
-  <div class="section-head">
-    <span class="eyebrow">Primer Parcial</span>
-    <h2>Métodos de integración</h2>
-    <p>Las técnicas fundamentales para resolver integrales: desde la definición básica hasta la sustitución trigonométrica. Haz clic en cada tema para ver el concepto, la fórmula y videos de apoyo.</p>
-  </div>
-
-  <div class="topics" id="topics-p1"></div>
-</section>
-
-<!-- ===================== SEGUNDO PARCIAL ===================== -->
-<section id="segundo-parcial" class="block" style="padding-top:0;">
-  <div class="section-head">
-    <span class="eyebrow">Segundo Parcial</span>
-    <h2>Aplicaciones de la integral</h2>
-    <p>Una vez dominadas las técnicas de integración, se aplican para resolver problemas geométricos y físicos: áreas, volúmenes, longitudes de curva y cinemática.</p>
-  </div>
-
-  <div class="topics" id="topics-p2"></div>
-
-  <div class="featured-video">
-    <div>
-      <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:#fff; border-color:rgba(255,255,255,0.2);">Video destacado</span>
-      <h3>Volumen de sólidos de revolución</h3>
-      <p>Un repaso visual de cómo una región plana, al girar alrededor de un eje, genera un sólido de revolución y cómo calcular su volumen mediante integrales.</p>
-      <a class="btn btn-primary" href="https://www.youtube.com/watch?v=BgJhiXhuFhk" target="_blank" rel="noopener">Ver en YouTube ↗</a>
-    </div>
-    <div class="featured-frame">
-      <iframe src="https://www.youtube.com/embed/BgJhiXhuFhk" title="Volumen de sólidos de revolución" allowfullscreen loading="lazy"></iframe>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== SOBRE LA MATERIA ===================== -->
-<section id="aprender" class="block">
-  <div class="aprendizaje">
-    <span class="eyebrow">Sobre la materia</span>
-    <h2 style="margin-top:14px;">Concepto de Cálculo Integral y aprendizaje de la materia</h2>
-    <p style="max-width:760px; margin-top:12px; font-size:15px;">
-      El Cálculo Integral es la rama de las matemáticas que estudia la acumulación de cantidades y el cálculo del área bajo una curva.
-      Es el proceso inverso a la derivada: mientras la derivada mide el cambio instantáneo de una función, la integral suma infinitos
-      cambios infinitesimales para reconstruir el total. Su estudio combina técnicas algebraicas de integración (sustitución, partes,
-      fracciones parciales, sustitución trigonométrica) con aplicaciones geométricas y físicas (áreas, volúmenes, longitudes de curva y cinemática).
-    </p>
-
-    <div class="featured-video" style="margin-top:32px;">
-      <div>
-        <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:#fff; border-color:rgba(255,255,255,0.2);">Introducción</span>
-        <h3>¿Qué es el Cálculo Integral?</h3>
-        <p>Un repaso de dónde surge el concepto de integral, su relación con el área bajo la curva y por qué es la base de toda la materia.</p>
-        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=d7Y9Om4KCUM" target="_blank" rel="noopener">Ver en YouTube ↗</a>
+      
+      <div class="hero-card">
+        <h3>Teorema Fundamental</h3>
+        <div class="hero-formula">
+          F(b) - F(a) = <span>∫</span><sub>a</sub><sup>b</sup> f(x)dx
+        </div>
+        <p style="color: rgba(255,255,255,0.85); font-size: 14px; margin: 0 0 16px;">Conectando de forma elegante el cálculo diferencial con el cálculo integral.</p>
+        <div class="hero-stats">
+          <div>
+            <b>01</b>
+            <span>Primer Parcial</span>
+          </div>
+          <div>
+            <b>02</b>
+            <span>Segundo Parcial</span>
+          </div>
+        </div>
       </div>
-      <div class="featured-frame">
-        <iframe src="https://www.youtube.com/embed/d7Y9Om4KCUM" title="Qué es el cálculo integral" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </div>
+    </section>
 
-    <div class="aprendizaje-grid">
-      <div class="item">
-        <div class="n">01</div>
-        <h4>Domina la derivada primero</h4>
-        <p>La integración se apoya en la derivación. Repasar reglas de derivadas facilita reconocer antiderivadas y elegir el método correcto.</p>
+    <!-- SECCIÓN: PRIMER PARCIAL -->
+    <section id="parcial1" class="block">
+      <div class="section-head">
+        <div class="eyebrow">Etapa de Introducción</div>
+        <h2>Primer Parcial</h2>
+        <p>Fundamentos teóricos de la integración, antiderivadas y las primeras estrategias esenciales de resolución algebraica.</p>
       </div>
-      <div class="item">
-        <div class="n">02</div>
-        <h4>Practica con muchos ejercicios</h4>
-        <p>Cada método de integración se domina resolviendo ejemplos variados. Identificar patrones (potencias, productos, raíces) acelera la elección de la técnica.</p>
+      
+      <div id="topics-p1" class="topics-container">
+        <!-- Inyección dinámica de JavaScript para el Parcial 1 -->
       </div>
-      <div class="item">
-        <div class="n">03</div>
-        <h4>Visualiza las aplicaciones</h4>
-        <p>Dibujar la región, el sólido de revolución o la curva ayuda a entender de dónde salen los límites de integración y las fórmulas.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<footer>
-  <p>Portafolio de Cálculo Integral · Hecho por <strong>Paul Arturo Chancay Contreras</strong></p>
-  <div class="socials">
-    <a href="#inicio">Volver arriba ↑</a>
-  </div>
-</footer>
+    <!-- SECCIÓN: SEGUNDO PARCIAL -->
+    <section id="parcial2" class="block" style="border-top: 1px solid var(--linea);">
+      <div class="section-head">
+        <div class="eyebrow">Etapa Avanzada</div>
+        <h2>Segundo Parcial</h2>
+        <p>Exploración de técnicas complejas de integración y sus aplicaciones prácticas en el cálculo de áreas, volúmenes y modelados físicos.</p>
+      </div>
+      
+      <div id="topics-p2" class="topics-container">
+        <!-- Inyección dinámica de JavaScript para el Parcial 2 -->
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Paul Arturo Chancay Contreras. Portafolio de Ingeniería en Sistemas de Información. Hecho con fines netamente académicos.</p>
+  </footer>
 
 <script>
-// ---------- DATOS DE LOS TEMAS ----------
+// ---------------- BASE DE DATOS DE LOS TEMAS DE CLASE ----------------
 const primerParcial = [
   {
-    n:"01",
-    titulo:"Integrales Definidas e Indefinidas",
-    resumen:"La base de todo el cálculo integral: antiderivadas y el Teorema Fundamental.",
-    concepto:"Una integral indefinida ∫f(x)dx representa a toda la familia de antiderivadas de f(x), es decir, todas las funciones F(x) cuya derivada es f(x); por eso siempre se agrega la constante de integración C. Una integral definida ∫[a→b] f(x)dx en cambio es un número: representa el área neta bajo la curva de f(x) entre x=a y x=b, y se calcula con el Teorema Fundamental del Cálculo.",
-    formula:"∫ f(x) dx = F(x) + C\n\n∫[a→b] f(x) dx = F(b) − F(a)",
-    nota:"F(x) es cualquier antiderivada de f(x). En la definida, la constante C se cancela al restar.",
-    ejercicio:{
-      enun:"Resolver la integral indefinida ∫(3x² + 2x) dx y luego evaluar la integral definida ∫[0→2] (3x² + 2x) dx.",
-      pasos:[
-        "Se integra término a término usando la regla de la potencia ∫xⁿdx = xⁿ⁺¹/(n+1).",
-        "∫3x² dx = x³ y ∫2x dx = x². La antiderivada indefinida es:", 
-        "F(x) = x³ + x² + C",
-        "Para la integral definida se evalúa F(x) en los límites: F(2) − F(0).",
-        "F(2) = 2³ + 2² = 8 + 4 = 12",
-        "F(0) = 0³ + 0² = 0",
+    n: "01",
+    titulo: "La Antiderivada e Integrales Indefinidas",
+    resumen: "Conceptos iniciales del proceso inverso de la derivación y propiedades elementales.",
+    concepto: "Una antiderivada de una función f(x) es otra función F(x) tal que F'(x) = f(x). El conjunto de todas las antiderivadas es la integral indefinida.",
+    formula: "∫ f(x) dx = F(x) + C",
+    nota: "La constante 'C' representa cualquier número real constante debido a que la derivada de una constante siempre es igual a cero.",
+    ejercicio: {
+      enum: "Calcular la integral indefinida de la función algebraica f(x) = 3x² + 2x.",
+      pasos: [
+        "Se aplica la propiedad de linealidad para separar los términos integrales: ∫ 3x² dx + ∫ 2x dx.",
+        "Se extraen las constantes multiplicativas fuera de las integrales: 3 ∫ x² dx + 2 ∫ x dx.",
+        "Se aplica la regla de potencias ∫ xⁿ dx = (xⁿ⁺¹)/(n+1): 3 * (x³/3) + 2 * (x²/2).",
+        "Se simplifican los coeficientes algebraicos resultantes: x³ + x²."
       ],
-      resultado:"∫(3x²+2x)dx = x³ + x² + C   |   ∫[0→2](3x²+2x)dx = 12"
+      resultado: "x³ + x² + C"
     },
-    videos:[
-      {id:"wuI5MFhvgsY", canal:"julioprofe", titulo:"Integrales definidas · Ejercicio 1"},
-      {id:"U8KRcmzwT-U", canal:"YouTube", titulo:"¿Qué son las integrales definidas e indefinidas?"},
-      {id:"d7Y9Om4KCUM", canal:"julioprofe", titulo:"Integrales · Introducción"},
+    videos: [
+      { id: "o7S97fL_S6g", canal: "julioprofe", name: "Concepto de antiderivada o integral indefinida" },
+      { id: "d7Y9Xm9Ggmo", canal: "MateFacil", name: "Integrales desde cero - Parte 1: Introducción y Fórmulas básicas" }
     ]
   },
   {
-    n:"02",
-    titulo:"Integración por partes",
-    resumen:"El método basado en la regla del producto para derivadas, aplicado en reversa.",
-    concepto:"Se usa cuando el integrando es un producto de dos funciones de distinta naturaleza (por ejemplo un polinomio por una exponencial, o un logaritmo por x). La clave está en elegir bien u y dv siguiendo el orden LIATE (Logarítmica, Inversa trigonométrica, Algebraica, Trigonométrica, Exponencial) para que la nueva integral ∫v du sea más sencilla que la original.",
-    formula:"∫ u dv = u·v − ∫ v du",
-    nota:"Se deriva u y se integra dv. Si la nueva integral sigue siendo compleja, se repite el proceso.",
-    ejercicio:{
-      enun:"Resolver ∫ x·eˣ dx usando integración por partes.",
-      pasos:[
-        "Se elige u = x (se deriva) y dv = eˣ dx (se integra), siguiendo el orden LIATE.",
-        "Entonces du = dx y v = eˣ.",
-        "Se aplica la fórmula ∫u dv = uv − ∫v du:",
-        "∫x·eˣ dx = x·eˣ − ∫eˣ dx",
-        "Se resuelve la integral restante: ∫eˣ dx = eˣ",
+    n: "02",
+    titulo: "Integración por Sustitución (Cambio de Variable)",
+    resumen: "Técnica para simplificar expresiones integrales mediante el uso de una nueva variable u.",
+    concepto: "Consiste en identificar una parte de la función como 'u' de modo que su derivada 'du' esté presente en la integral, facilitando el cálculo.",
+    formula: "∫ f(g(x)) g'(x) dx = ∫ f(u) du",
+    nota: "Elegir la 'u' adecuada es clave; generalmente corresponde a la expresión que se encuentra dentro de una potencia, raíz o denominador.",
+    ejercicio: {
+      enum: "Calcular la integral de ∫ 2x * e^(x²) dx.",
+      pasos: [
+        "Se define la nueva variable u como la potencia interna: u = x².",
+        "Se diferencia para hallar du: du = 2x dx.",
+        "Se sustituyen los términos en la expresión original: ∫ e^u du.",
+        "Se integra la función exponencial elemental: e^u.",
+        "Se regresa a los términos de la variable original x: e^(x²)."
       ],
-      resultado:"∫ x·eˣ dx = x·eˣ − eˣ + C"
+      resultado: "e^(x²) + C"
     },
-    videos:[
-      {id:"_T7AE2KEaJY", canal:"julioprofe", titulo:"Integrales por partes · Ejercicio 1"},
-      {id:"VSlbr4IM9Co", canal:"julioprofe", titulo:"Integración por sustitución y partes · Ej. 6"},
-      {id:"4u2vi0ZhCng", canal:"julioprofe", titulo:"Integrales por partes y sustitución trigonométrica"},
+    videos: [
+      { id: "VILkB7V_n_4", canal: "julioprofe", name: "INTEGRACIÓN POR SUSTITUCIÓN - Ejercicio 1" },
+      { id: "Uz59X1S_H8w", canal: "MateFacil", name: "Integral por cambio de variable o sustitución - Ejemplo 1" }
     ]
-  },
-  {
-    n:"03",
-    titulo:"Integral por cambio de variable",
-    resumen:"También llamado método de sustitución: simplifica la integral con una nueva variable u.",
-    concepto:"Consiste en identificar una parte del integrando como una nueva variable u = g(x), de modo que du = g'(x)dx aparezca (o pueda hacerse aparecer) en la integral. Esto transforma una integral complicada en una integral básica en términos de u, que luego se devuelve a la variable original.",
-    formula:"Sea u = g(x), du = g'(x) dx\n\n∫ f(g(x))·g'(x) dx = ∫ f(u) du",
-    nota:"Es el método más usado como primer intento antes de recurrir a partes o sustitución trigonométrica.",
-    ejercicio:{
-      enun:"Resolver ∫ 2x·(x²+1)⁴ dx mediante cambio de variable.",
-      pasos:[
-        "Se identifica u = x² + 1, porque su derivada aparece en el integrando.",
-        "Se deriva: du = 2x dx (¡coincide exactamente con lo que sobra en la integral!).",
-        "Se sustituye: ∫2x(x²+1)⁴ dx = ∫u⁴ du",
-        "Se integra en términos de u: ∫u⁴ du = u⁵/5 + C",
-        "Se regresa a la variable original reemplazando u = x²+1.",
-      ],
-      resultado:"∫ 2x·(x²+1)⁴ dx = (x²+1)⁵ / 5 + C"
-    },
-    videos:[
-      {id:"rWrbdwlPEkE", canal:"julioprofe", titulo:"Integrales por sustitución · Ej. 29"},
-      {id:"5Ej7FPMxmPA", canal:"MateFacil", titulo:"Integrales por cambio de variable · Video 1"},
-      {id:"KooaSuEAsf4", canal:"julioprofe", titulo:"Integración por sustitución · Ejercicio 16"},
-    ]
-  },
-  {
-    n:"04",
-    titulo:"Integrales trigonométricas (tipo 1, 2, 3, 4)",
-    resumen:"Potencias y productos de funciones trigonométricas: seno, coseno, tangente y secante.",
-    concepto:"Se clasifican según la combinación de funciones y la paridad de sus exponentes. Tipo 1: potencias impares de seno o coseno (se separa un factor y se usa la identidad pitagórica). Tipo 2: potencias pares de seno y coseno (se usan identidades de ángulo doble). Tipo 3: potencias de tangente y secante. Tipo 4: productos de seno y coseno con ángulos distintos (se usan fórmulas de producto a suma).",
-    formula:"sin²x + cos²x = 1\ntan²x + 1 = sec²x\nsin²x = (1−cos2x)/2\ncos²x = (1+cos2x)/2",
-    nota:"Identificar primero si las potencias son pares o impares determina qué identidad conviene aplicar.",
-    ejercicio:{
-      enun:"Resolver ∫ sin³x dx (potencia impar de seno).",
-      pasos:[
-        "Como la potencia es impar, se separa un factor de seno: sin³x = sin²x · sinx.",
-        "Se usa la identidad pitagórica: sin²x = 1 − cos²x.",
-        "La integral queda: ∫(1 − cos²x)·sinx dx",
-        "Se sustituye u = cosx, du = −sinx dx, entonces sinx dx = −du.",
-        "∫(1−u²)(−du) = −∫(1−u²)du = −u + u³/3 + C",
-        "Se regresa a la variable original reemplazando u = cosx.",
-      ],
-      resultado:"∫ sin³x dx = −cosx + cos³x/3 + C"
-    },
-    videos:[
-      {id:"aV3RC0Eh-SQ", canal:"julioprofe", titulo:"Integrales trigonométricas · Ej. 5"},
-      {id:"Q9ru6AuREaw", canal:"julioprofe", titulo:"Integrales trigonométricas · Ej. 3 (sen²x)"},
-      {id:"YnNqR370myg", canal:"YouTube", titulo:"Integración de potencias trigonométricas · Ejemplo 1"},
-    ]
-  },
-  {
-    n:"05",
-    titulo:"Integral por sustitución trigonométrica",
-    resumen:"Para integrandos con raíces del tipo √(a²−x²), √(a²+x²) o √(x²−a²).",
-    concepto:"Cuando aparece una raíz cuadrada de una suma o diferencia de cuadrados, se sustituye x por una función trigonométrica (seno, tangente o secante) para eliminar la raíz usando identidades pitagóricas, formando un triángulo de referencia para regresar a la variable original al final.",
-    formula:"√(a²−x²)  →  x = a·sen θ\n√(a²+x²)  →  x = a·tan θ\n√(x²−a²)  →  x = a·sec θ",
-    nota:"Al final se usa un triángulo rectángulo para expresar θ de nuevo en función de x.",
-    ejercicio:{
-      enun:"Resolver ∫ dx / √(4 − x²) mediante sustitución trigonométrica.",
-      pasos:[
-        "La raíz tiene la forma √(a²−x²) con a = 2, así que se sustituye x = 2·senθ.",
-        "Entonces dx = 2·cosθ dθ y √(4−x²) = √(4−4sen²θ) = 2·cosθ.",
-        "Se sustituye en la integral: ∫ (2·cosθ dθ) / (2·cosθ) = ∫ dθ",
-        "Se integra directamente: ∫dθ = θ + C",
-        "Se regresa a x usando θ = arcsen(x/2).",
-      ],
-      resultado:"∫ dx / √(4−x²) = arcsen(x/2) + C"
-    },
-    videos:[
-      {id:"jjqvOjQFnhI", canal:"julioprofe", titulo:"Sustitución trigonométrica · Ej. 1"},
-      {id:"qzG4_jtwcXU", canal:"julioprofe", titulo:"Sustitución trigonométrica · Ej. 5"},
-      {id:"XvMN-DnTjIY", canal:"julioprofe", titulo:"Sustitución trigonométrica · Ejercicio 9"},
-    ]
-  },
+  }
 ];
 
 const segundoParcial = [
   {
-    n:"01",
-    titulo:"Integración de funciones racionales (fracciones parciales)",
-    resumen:"Caso I: factores lineales no repetidos · Caso II: factores lineales repetidos.",
-    concepto:"Cuando el integrando es una fracción de polinomios, se descompone en una suma de fracciones más simples antes de integrar. Caso I: si el denominador se factoriza en factores lineales distintos, a cada uno le corresponde una fracción con una constante en el numerador. Caso II: si un factor lineal se repite k veces, le corresponden k fracciones, una por cada potencia del factor de 1 hasta k.",
-    formula:"Caso I:  P(x)/[(x−a)(x−b)] = A/(x−a) + B/(x−b)\n\nCaso II: P(x)/(x−a)^k = A₁/(x−a) + A₂/(x−a)² + … + Aₖ/(x−a)^k",
-    nota:"El grado del numerador debe ser menor que el del denominador; si no, primero se hace división de polinomios.",
-    ejercicio:{
-      enun:"Resolver ∫ (3x+5) / [(x−1)(x+2)] dx (Caso I: factores lineales no repetidos).",
-      pasos:[
-        "Se plantea la descomposición: (3x+5)/[(x−1)(x+2)] = A/(x−1) + B/(x+2)",
-        "Se multiplica ambos lados por (x−1)(x+2): 3x+5 = A(x+2) + B(x−1)",
-        "Se evalúa en x = 1: 8 = A(3) → A = 8/3",
-        "Se evalúa en x = −2: −1 = B(−3) → B = 1/3",
-        "Se integra cada fracción por separado: ∫A/(x−1)dx + ∫B/(x+2)dx",
-      ],
-      resultado:"∫(3x+5)/[(x−1)(x+2)] dx = (8/3)ln|x−1| + (1/3)ln|x+2| + C"
-    },
-    videos:[
-      {id:"YofhFP7RcmE", canal:"YouTube", titulo:"Fracciones parciales · Caso I (factores no repetidos)"},
-      {id:"Lhb4kRTbh3w", canal:"YouTube", titulo:"Integración por fracciones parciales · Caso 1, Ej. 1"},
-      {id:"FevMzeykpaY", canal:"YouTube", titulo:"Caso II: Factores lineales repetidos"},
-      {id:"jTxpr8RFQKo", canal:"YouTube", titulo:"Fracciones parciales · Ejemplo 11, factores repetidos"},
-    ]
-  },
-  {
-    n:"02",
-    titulo:"Área bajo la curva",
-    resumen:"Sus fórmulas, gráficas y variantes: área entre el eje X y una función, y área entre dos curvas.",
-    concepto:"El área de la región R limitada por la gráfica de f(x), el eje X y las rectas x=a, x=b se calcula con la integral definida de f en [a,b]. Cuando f(x) es negativa en parte del intervalo, se usa el valor absoluto para que el área no salga negativa. Si la región está limitada por dos curvas (RL: región limitada), se integra la diferencia entre la curva superior y la inferior.",
-    formula:"Área bajo la curva:\nA = ∫[a→b] |f(x)| dx\n\nÁrea entre dos curvas (f arriba de g):\nA = ∫[a→b] [f(x) − g(x)] dx",
-    nota:"Siempre conviene graficar la región y hallar los puntos de intersección antes de plantear la integral.",
-    grafica: `<svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg">
-      <line x1="40" y1="250" x2="410" y2="250" stroke="#0A2E5C" stroke-width="1.5"/>
-      <line x1="60" y1="270" x2="60" y2="20" stroke="#0A2E5C" stroke-width="1.5"/>
-      <path d="M60,250 C100,246 160,215 200,132 L200,250 Z" fill="#5FB3F0" fill-opacity="0.35" stroke="none"/>
-      <path d="M60,250 C100,246 160,215 260,60" fill="none" stroke="#0F4C9C" stroke-width="2.5"/>
-      <line x1="200" y1="250" x2="200" y2="132" stroke-dasharray="4 4" stroke="#0A2E5C" stroke-width="1"/>
-      <text x="55" y="270" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">a</text>
-      <text x="196" y="270" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">b</text>
-      <text x="270" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#0F4C9C">y = f(x)</text>
-      <text x="105" y="220" font-family="JetBrains Mono, monospace" font-size="13" fill="#0A2E5C">Área = ∫[a→b] f(x)dx</text>
-      <text x="415" y="255" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">x</text>
-      <text x="45" y="25" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">y</text>
-    </svg>`,
-    ejercicio:{
-      enun:"Calcular el área bajo la curva f(x) = x² entre x = 0 y x = 2.",
-      pasos:[
-        "Se plantea la integral definida: A = ∫[0→2] x² dx",
-        "Se halla la antiderivada: ∫x² dx = x³/3",
-        "Se evalúa en los límites: A = [x³/3] desde 0 hasta 2",
-        "A = (2³/3) − (0³/3) = 8/3 − 0",
-      ],
-      resultado:"Área = 8/3 unidades² ≈ 2.67 u²"
-    },
-    videos:[
-      {id:"V7WnsXYJZaM", canal:"julioprofe", titulo:"Área bajo una curva · Ejercicio 1"},
-      {id:"zOifhTHi3qk", canal:"julioprofe", titulo:"Área bajo una curva · Ej. 3 (con calculadora)"},
-      {id:"0hs3v3lilT8", canal:"julioprofe", titulo:"Área entre curvas · Ej. 5"},
-    ]
-  },
-  {
-    n:"03",
+    n: "03",
     titulo: "Volumen de sólidos de revolución",
     resumen: "El cálculo de volúmenes al girar una región plana: método de discos y de arandelas.",
-    concepto: "Un sólido de revolución se genera al rotar una región plana alrededor de un eje. Si la región está pegada al eje de giro y no hay espacios vacíos, se usa el método de discos, donde el sólido se corta en cilindros de espesor infinitesimal dx. Si la región está separada del eje por otra función, se genera un hueco central y se usa el método de arandelas (o anillos), restando el volumen del radio interno al del radio externo.",
-    formula: "Método de discos (eje X):\nV = π · ∫[a→b] [f(x)]² dx\n\nMétodo de arandelas (eje X):\nV = π · ∫[a→b] ([R(x)]² − [r(x)]²) dx",
+    concepto: "Un sólido de revolución se genera al rotar una región plana alrededor de un eje. Si la región está pegada al eje de giro y no hay espacios vacíos, se usa el método de discos.",
+    formula: "Método de discos (eje X): V = π · ∫[a→b] [f(x)]² dx   |   Método de arandelas (eje X): V = π · ∫[a→b] ([R(x)]² - [r(x)]²) dx",
     nota: "R(x) representa el radio externo (función más alejada del eje de giro) y r(x) el radio interno (función más cercana).",
     ejercicio: {
-      enun: "Calcular el volumen del sólido generado al girar alrededor del eje X la región limitada por f(x) = √x, el eje X y entre x = 0 y x = 4.",
+      enum: "Calcular el volumen del sólido generado al girar alrededor del eje X la región limitada por f(x) = √x, el eje X y entre x = 0 y x = 4.",
       pasos: [
-        "Se identifica que la región está pegada al eje X, por lo que se aplica el método de discos.",
-        "Se plantea la integral: V = π · ∫[0→4] (√x)² dx",
-        "Se simplifica el integrando: (√x)² = x, quedando V = π · ∫[0→4] x dx",
-        "Se integra la función: ∫x dx = x²/2",
-        "Se evalúa en los límites: V = π · [x²/2] desde 0 hasta 4",
-        "V = π · (4²/2 − 0²/2) = π · (16/2) = 8π",
+        "Se identifica que la región está pegada al eje X, por lo lo que se aplica el método de discos.",
+        "Se plantea la integral correspondiente: V = π · ∫[0→4] (√x)² dx.",
+        "Se simplifica el integrando anulando la raíz cuadrada con el exponente: (√x)² = x, quedando V = π · ∫[0→4] x dx.",
+        "Se integra la función obtenida: ∫x dx = x²/2.",
+        "Se evalúa en los límites superior e inferior: V = π · [ (4²/2) - (0²/2) ] = π · (16/2) = 8π."
       ],
       resultado: "Volumen = 8π unidades³ ≈ 25.13 u³"
     },
@@ -623,49 +395,50 @@ const segundoParcial = [
     n: "04",
     titulo: "Longitud de arco",
     resumen: "Determinación de la distancia exacta recorrida a lo largo de una sección de curva continua.",
-    concepto: "Permite calcular la longitud exacta de un segmento de curva suave y continua f(x) entre dos puntos x=a y x=b. La fórmula se deduce de aproximar la curva mediante pequeños segmentos de líneas rectas usando el teorema de Pitágoras, lo que introduce un término con la derivada de la función elevada al cuadrado dentro de una raíz cuadrada.",
+    concepto: "Permite calcular la longitud exacta de un segmento de curva suave y continua f(x) entre dos puntos x=a y x=b. La fórmula se deduce de aproximar la curva mediante infinitos segmentos rectos rectificados.",
     formula: "L = ∫[a→b] √(1 + [f'(x)]²) dx",
     nota: "El integrando resultante suele requerir identidades trigonométricas o sustituciones complejas para resolverse analíticamente.",
     ejercicio: {
-      enun: "Plantear la integral para la longitud de arco de la curva f(x) = x^(3/2) en el intervalo [0, 4].",
+      enum: "Plantear la integral para la longitud de arco de la curva f(x) = x^(3/2) en el intervalo [0, 4].",
       pasos: [
         "Se calcula primero la derivada de la función: f'(x) = (3/2)x^(1/2) = (3/2)√x.",
-        "Se eleva la derivada al cuadrado: [f'(x)]² = ((3/2)√x)² = (9/4)x.",
-        "Se sustituye en la fórmula de longitud de arco: L = ∫[0→4] √(1 + (9/4)x) dx.",
-        "Se puede resolver mediante un cambio de variable básico u = 1 + (9/4)x.",
+        "Se eleva la derivada calculada al cuadrado: [f'(x)]² = ((3/2)√x)² = (9/4)x.",
+        "Se sustituye en la fórmula de la longitud de arco: L = ∫[0→4] √(1 + (9/4)x) dx.",
+        "Se puede resolver mediante un cambio de variable básico u = 1 + (9/4)x para obtener el resultado exacto analítico."
       ],
-      resultado: "L = (8/27) * (10^(3/2) − 1) unidades ≈ 9.07 u"
+      resultado: "L = (8/27) * (10^(3/2) - 1) unidades ≈ 9.07 u"
     },
     videos: [
-      { id: "3HqbyXw6EAs", canal: "julioprofe", name: "LONGITUD DE UNA CURVA - Ejercicio 1" },
-      { id: "A-eEepHqCgE", canal: "MateFacil", name: "Longitud de arco de una curva por integrales (Ejemplo 1)" }
+      { id: "v-A-eLephCg", canal: "julioprofe", name: "LONGITUD DE UNA CURVA - Ejercicio 1" },
+      { id: "46Uv7G87p80", canal: "MateFacil", name: "Longitud de arco de una curva por integrales (Ejemplo 1)" }
     ]
   },
   {
     n: "05",
     titulo: "Aplicaciones a la física (Cinemática)",
     resumen: "Modelado del movimiento lineal: cálculo de la posición y velocidad mediante antiderivadas.",
-    concepto: "En la física, la integración reconstruye variables dinámicas a partir de sus tasas de cambio. Si se conoce la función de aceleración a(t), integrarla respecto al tiempo devuelve la velocidad v(t). De la misma forma, al integrar la función de velocidad v(t) se obtiene la posición exacta s(t) de la partícula. Las condiciones iniciales permiten calcular con precisión los valores de las constantes de integración.",
-    formula: "v(t) = ∫ a(t) dt + C₁\n\ns(t) = ∫ v(t) dt + C₂",
+    concepto: "En la física, la integración reconstruye variables dinámicas a partir de sus tasas de cambio. Si se conoce la función de aceleración a(t), integrarla respecto al tiempo arroja la velocidad v(t); e integrar esta última genera la posición s(t).",
+    formula: "v(t) = ∫ a(t) dt + C₁   |   s(t) = ∫ v(t) dt + C₂",
     nota: "La constante C₁ corresponde comúnmente a la velocidad inicial v(0), y C₂ a la posición inicial s(0).",
     ejercicio: {
-      enun: "Una partícula se mueve con aceleración constante a(t) = 4 m/s². Si arranca del reposo (v(0)=0) desde el origen (s(0)=0), hallar su posición en t = 3 segundos.",
+      enum: "Una partícula se mueve con aceleración constante a(t) = 4 m/s². Si arranca del reposo (v(0)=0) desde el origen (s(0)=0), hallar su posición en t = 3 segundos.",
       pasos: [
-        "Se integra la aceleración para hallar la velocidad: v(t) = ∫4 dt = 4t + C₁.",
+        "Se integra la aceleración para hallar la ecuación de velocidad: v(t) = ∫ 4 dt = 4t + C₁.",
         "Dado que v(0) = 0, se deduce directamente que C₁ = 0. Así, v(t) = 4t.",
-        "Se integra la velocidad para hallar la posición: s(t) = ∫4t dt = 2t² + C₂.",
+        "Se integra la función de velocidad para hallar la posición: s(t) = ∫ 4t dt = 2t² + C₂.",
         "Dado que s(0) = 0, se deduce directamente que C₂ = 0. Así, s(t) = 2t².",
-        "Se evalúa la posición en el tiempo indicado t = 3: s(3) = 2(3)² = 2(9) = 18.",
+        "Se evalúa la posición en el tiempo indicado t = 3: s(3) = 2(3)² = 2(9) = 18 metros."
       ],
       resultado: "Posición s(3) = 18 metros"
     },
     videos: [
-      { id: "gq91b8kYVf8", canal: "julioprofe", name: "Aplicación de la integral en Física: Cinemática - Ejercicio 1" },
-      { id: "_E9vUksWc30", canal: "MateFacil", name: "Obtener velocidad y posición a partir de la aceleración usando integrales" }
+      { id: "gqB1b8kYVf8", canal: "julioprofe", name: "Aplicación de la integral en Física: Cinemática - Ejercicio 1" },
+      { id: "_E9vUksWc38", canal: "MateFacil", name: "Obtener velocidad y posición a partir de la aceleración usando integrales" }
     ]
   }
 ];
-// ---------- RENDERIZADO DINÁMICO DE LAS TARJETAS ----------
+
+// ---------------- RENDERIZADO DINÁMICO DE LAS TARJETAS ----------------
 function renderizarTemas(arr, contenedorId) {
   const container = document.getElementById(contenedorId);
   arr.forEach((topic) => {
@@ -710,11 +483,13 @@ function renderizarTemas(arr, contenedorId) {
     }
 
     const htmlCard = `
-      <div class="topic-card" onclick="toggleTema(this)">
+      <div class="topic card" onclick="toggleTema(this)">
         <div class="num">${topic.n}</div>
         <div class="toggle">+</div>
-        <h4>${topic.titulo}</h4>
-        <p>${topic.resumen}</p>
+        <div>
+          <h4>${topic.titulo}</h4>
+          <p>${topic.resumen}</p>
+        </div>
       </div>
       <div class="topic-detail">
         <div class="detail-inner">
@@ -731,7 +506,7 @@ function renderizarTemas(arr, contenedorId) {
           <div class="exercise-box">
             <div class="exercise-head">
               <div class="tag">Ejemplo</div>
-              <span class="enun">${topic.ejercicio ? topic.ejercicio.enun : ''}</span>
+              <span class="enum">${topic.ejercicio ? topic.ejercicio.enum : ''}</span>
             </div>
             <div class="exercise-body">
               ${pasosHtml}
@@ -746,15 +521,17 @@ function renderizarTemas(arr, contenedorId) {
         </div>
       </div>
     `;
+
     container.innerHTML += htmlCard;
   });
 }
 
 function toggleTema(cardElement) {
   const isOpen = cardElement.classList.contains('open');
-  const hermanos = cardElement.parentElement.querySelectorAll('.topic-card');
-  hermanos.forEach(c => c.classList.remove('open'));
-  
+  // Se cambia a '.topic.card' para seleccionar correctamente el elemento con ambas clases
+  const hermanos = cardElement.parentElement.querySelectorAll('.topic.card');
+  hermanos.forEach((c) => c.classList.remove('open'));
+
   if (!isOpen) {
     cardElement.classList.add('open');
   }
@@ -767,4 +544,5 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
+
 
