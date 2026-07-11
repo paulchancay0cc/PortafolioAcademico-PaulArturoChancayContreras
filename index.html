@@ -168,13 +168,6 @@
   }
   .formula-note {font-size:13.5px; color:var(--texto-suave); margin-top:8px; font-style:italic;}
 
-  /* Gráficas */
-  .graph-box {
-    background:var(--azul-hielo); border:1px solid var(--linea); border-radius:14px;
-    padding:20px; margin-top:20px; text-align:center;
-  }
-  .graph-caption {font-size:13px; color:var(--texto-suave); margin-top:10px;}
-
   /* Bloque de Ejercicios */
   .exercise-box {
     border:1px solid var(--linea); border-radius:14px; overflow:hidden; background:#fff;
@@ -363,12 +356,129 @@ const primerParcial = [
       { id: "VILkB7V_n_4", canal: "julioprofe", name: "INTEGRACIÓN POR SUSTITUCIÓN - Ejercicio 1" },
       { id: "Uz59X1S_H8w", canal: "MateFacil", name: "Integral por cambio de variable o sustitución - Ejemplo 1" }
     ]
+  },
+  {
+    n: "03",
+    titulo: "Integración por Partes",
+    resumen: "Método basado en la derivada de un producto para resolver integrales de productos de funciones.",
+    concepto: "Se utiliza cuando el integrando es un producto de dos funciones de distinta naturaleza (algebraicas, trigonométricas, exponenciales, logarítmicas). Se usa la regla ILATE para priorizar la elección de 'u'.",
+    formula: "∫ u dv = u v - ∫ v du",
+    nota: "Una regla mnemotécnica popular para recordar la fórmula es: 'Un día vi una vaca vestida de uniforme'.",
+    ejercicio: {
+      enum: "Calcular la integral de ∫ x * cos(x) dx.",
+      pasos: [
+        "Siguiendo ILATE, elegimos la función algebraica como u: u = x. Por lo tanto, dv = cos(x) dx.",
+        "Derivamos u para obtener du: du = dx.",
+        "Integramos dv para obtener v: v = sen(x).",
+        "Aplicamos la fórmula: x * sen(x) - ∫ sen(x) dx.",
+        "Resolvemos la integral restante sabiendo que ∫ sen(x) dx = -cos(x): x * sen(x) - (-cos(x))."
+      ],
+      resultado: "x * sen(x) + cos(x) + C"
+    },
+    videos: [
+      { id: "dgaD_q7k8U4", canal: "julioprofe", name: "INTEGRACIÓN POR PARTES - Ejercicio 1" },
+      { id: "sUz94S9X_H4", canal: "MateFacil", name: "Integral por partes - Ejemplo 1" }
+    ]
+  },
+  {
+    n: "04",
+    titulo: "Integrales Trigonométricas",
+    resumen: "Resolución de integrales que involucran potencias de funciones trigonométricas.",
+    concepto: "Se basa en el uso de identidades trigonométricas fundamentales (como las pitagóricas o de ángulo doble) para reducir los exponentes o transformar los productos en sumas más sencillas.",
+    formula: "sen²(x) + cos²(x) = 1   |   sen²(x) = (1 - cos(2x))/2   |   cos²(x) = (1 + cos(2x))/2",
+    nota: "La estrategia varía dependiendo de si las potencias de las funciones (seno, coseno, tangente, secante) son pares o impares.",
+    ejercicio: {
+      enum: "Calcular la integral de ∫ sen³(x) dx.",
+      pasos: [
+        "Separamos una potencia impar: ∫ sen²(x) * sen(x) dx.",
+        "Sustituimos sen²(x) usando la identidad pitagórica: ∫ (1 - cos²(x)) * sen(x) dx.",
+        "Hacemos cambio de variable: u = cos(x), por lo tanto du = -sen(x) dx, lo que implica -du = sen(x) dx.",
+        "Reemplazamos en la integral: -∫ (1 - u²) du = ∫ (u² - 1) du.",
+        "Integramos término a término: (u³/3) - u.",
+        "Regresamos a la variable original: (cos³(x)/3) - cos(x)."
+      ],
+      resultado: "(cos³(x)/3) - cos(x) + C"
+    },
+    videos: [
+      { id: "46Uv7G87p80", canal: "MateFacil", name: "Integral de seno al cubo - Integrales trigonométricas" },
+      { id: "v-A-eLephCg", canal: "julioprofe", name: "INTEGRAL TRIGONOMÉTRICA - Ejercicio 1" }
+    ]
+  },
+  {
+    n: "05",
+    titulo: "Sustitución Trigonométrica",
+    resumen: "Transformación de expresiones con raíces cuadradas algebraicas en términos trigonométricos simples.",
+    concepto: "Se aplica cuando encontramos expresiones de la forma √(a²-x²), √(a²+x²) o √(x²-a²). Al construir un triángulo rectángulo adecuado, podemos sustituir x por funciones trigonométricas y eliminar la raíz.",
+    formula: "Para √(a²-x²) usar x = a·sen(θ)  |  Para √(a²+x²) usar x = a·tan(θ)  |  Para √(x²-a²) usar x = a·sec(θ)",
+    nota: "Es fundamental recordar los differentials correspondientes y reconstruir el triángulo al final para volver a la variable x.",
+    ejercicio: {
+      enum: "Plantear la sustitución para resolver ∫ dx / √(4 - x²).",
+      pasos: [
+        "Identificamos la estructura a² - x², donde a² = 4, por lo tanto a = 2.",
+        "Proponemos el cambio de variable: x = 2 * sen(θ).",
+        "Calculamos el diferencial correspondiente: dx = 2 * cos(θ) dθ.",
+        "Sustituimos en el radical: √(4 - 4sen²(θ)) = √(4(1 - sen²(θ))) = √(4cos²(θ)) = 2cos(θ).",
+        "Reemplazamos todo en la integral original: ∫ (2cos(θ) dθ) / (2cos(θ)) = ∫ 1 dθ = θ.",
+        "Despejamos θ a partir del cambio inicial: sen(θ) = x/2, por lo que θ = arcsen(x/2)."
+      ],
+      resultado: "arcsen(x/2) + C"
+    },
+    videos: [
+      { id: "BgJhiXhuFhk", canal: "MateFacil", name: "Sustitución trigonométrica - Caso 1 (Ejemplo 1)" },
+      { id: "_E9vUksWc38", canal: "Pasos por ingeniería", name: "SUSTITUCIÓN TRIGONOMÉTRICA - Ejercicio 1" }
+    ]
   }
 ];
 
 const segundoParcial = [
   {
-    n: "03",
+    n: "06",
+    titulo: "Fracciones Parciales",
+    resumen: "Descomposición de funciones racionales complejas en una suma de fracciones más simples.",
+    concepto: "Se utiliza para integrar cocientes de polinomios P(x)/Q(x) donde el grado del numerador es menor que el del denominador. El denominador se factoriza en factores lineales o cuadráticos irreducibles.",
+    formula: "Caso 1 (Factores lineales distintos): A / (x - r₁) + B / (x - r₂)",
+    nota: "Si el grado del numerador es mayor o igual, primero se debe realizar una división polinómica larga antes de descomponer.",
+    ejercicio: {
+      enum: "Calcular la integral de ∫ dx / (x² - 5x + 6).",
+      pasos: [
+        "Factorizamos por completo el denominador: x² - 5x + 6 = (x - 2)(x - 3).",
+        "Planteamos la descomposición: 1 / ((x-2)(x-3)) = A / (x - 2) + B / (x - 3).",
+        "Multiplicamos por el denominador común: 1 = A(x - 3) + B(x - 2).",
+        "Evaluamos en valores críticos: Si x = 3, entonces B = 1. Si x = 2, entonces A = -1.",
+        "Sustituimos e integramos individualmente: ∫ -1/(x-2) dx + ∫ 1/(x-3) dx = -ln|x-2| + ln|x-3|."
+      ],
+      resultado: "ln|(x-3)/(x-2)| + C"
+    },
+    videos: [
+      { id: "gqB1b8kYVf8", canal: "Profe Alex", name: "INTEGRACIÓN POR FRACCIONES PARCIALES - Ejercicio 1" },
+      { id: "_C6b_Xm1E7k", canal: "MateFacil", name: "Integración por fracciones parciales - Caso 1 (Ejemplo 1)" }
+    ]
+  },
+  {
+    n: "07",
+    titulo: "Área bajo la curva y entre curvas",
+    resumen: "Uso de la integral definida para determinar magnitudes de superficies planas acotadas.",
+    concepto: "El área bajo una función positiva f(x) se calcula con la integral definida. Si se busca el área entre dos funciones f(x) y g(x) en un intervalo, se integra la diferencia de la función superior menos la inferior.",
+    formula: "Área = ∫[a→b] (f(x) - g(x)) dx  donde f(x) ≥ g(x)",
+    nota: "Los límites de integración 'a' y 'b' corresponden a las intersecciones de las curvas si no se especifican explícitamente.",
+    ejercicio: {
+      enum: "Calcular el área de la región comprendida entre las curvas f(x) = x y g(x) = x².",
+      pasos: [
+        "Encontramos los puntos de intersección igualando las funciones: x = x² => x² - x = 0 => x(x - 1) = 0. Los puntos son x = 0 y x = 1.",
+        "Determinamos cuál función es superior en el intervalo (0, 1) evaluando un punto intermedio (ej. 0.5): f(0.5) = 0.5 y g(0.5) = 0.25. Por lo tanto, f(x) > g(x).",
+        "Planteamos la integral definida: ∫[0→1] (x - x²) dx.",
+        "Buscamos la antiderivada: [x²/2 - x³/3] evaluado de 0 a 1.",
+        "Evaluamos en los límites: (1/2 - 1/3) - (0) = 3/6 - 2/6 = 1/6."
+      ],
+      resultado: "Área = 1/6 unidades²"
+    },
+    videos: [
+      { id: "o7S97fL_S6g", canal: "julioprofe", name: "ÁREA BAJO LA CURVA - Ejercicio 1" },
+      { id: "d7Y9Xm9Ggmo", canal: "MateFacil", name: "Área entre dos curvas usando integrales - Ejemplo 1" }
+    ]
+  },
+  {
+    n: "08",
     titulo: "Volumen de sólidos de revolución",
     resumen: "El cálculo de volúmenes al girar una región plana: método de discos y de arandelas.",
     concepto: "Un sólido de revolución se genera al rotar una región plana alrededor de un eje. Si la región está pegada al eje de giro y no hay espacios vacíos, se usa el método de discos.",
@@ -377,9 +487,9 @@ const segundoParcial = [
     ejercicio: {
       enum: "Calcular el volumen del sólido generado al girar alrededor del eje X la región limitada por f(x) = √x, el eje X y entre x = 0 y x = 4.",
       pasos: [
-        "Se identifica que la región está pegada al eje X, por lo lo que se aplica el método de discos.",
+        "Se identifica que la región está pegada al eje X, por lo que se aplica el método de discos.",
         "Se plantea la integral correspondiente: V = π · ∫[0→4] (√x)² dx.",
-        "Se simplifica el integrando anulando la raíz cuadrada con el exponente: (√x)² = x, quedando V = π · ∫[0→4] x dx.",
+        "Se simplifica el integrando acoplando la raíz cuadrada con el exponente: (√x)² = x, quedando V = π · ∫[0→4] x dx.",
         "Se integra la función obtenida: ∫x dx = x²/2.",
         "Se evalúa en los límites superior e inferior: V = π · [ (4²/2) - (0²/2) ] = π · (16/2) = 8π."
       ],
@@ -387,12 +497,11 @@ const segundoParcial = [
     },
     videos: [
       { id: "R_aq7daY08w", canal: "julioprofe", name: "VOLUMEN DE UN SÓLIDO DE REVOLUCIÓN - Método de los discos - Ejercicio 1" },
-      { id: "_C6b_Xm1E7k", canal: "julioprofe", name: "SÓLIDOS DE REVOLUCIÓN - Método de las arandelas - Ejercicio 1" },
-      { id: "BgJhiXhuFhk", canal: "YouTube", name: "Volumen de un sólido de revolución método de discos y arandelas" }
+      { id: "_C6b_Xm1E7k", canal: "Profe Alex", name: "SÓLIDOS DE REVOLUCIÓN - Método de las arandelas - Ejercicio 1" }
     ]
   },
   {
-    n: "04",
+    n: "09",
     titulo: "Longitud de arco",
     resumen: "Determinación de la distancia exacta recorrida a lo largo de una sección de curva continua.",
     concepto: "Permite calcular la longitud exacta de un segmento de curva suave y continua f(x) entre dos puntos x=a y x=b. La fórmula se deduce de aproximar la curva mediante infinitos segmentos rectos rectificados.",
@@ -409,12 +518,12 @@ const segundoParcial = [
       resultado: "L = (8/27) * (10^(3/2) - 1) unidades ≈ 9.07 u"
     },
     videos: [
-      { id: "v-A-eLephCg", canal: "julioprofe", name: "LONGITUD DE UNA CURVA - Ejercicio 1" },
-      { id: "46Uv7G87p80", canal: "MateFacil", name: "Longitud de arco de una curva por integrales (Ejemplo 1)" }
+      { id: "Uz59X1S_H8w", canal: "Pasos por ingeniería", name: "LONGITUD DE UNA CURVA - Ejercicio 1" },
+      { id: "VILkB7V_n_4", canal: "MateFacil", name: "Longitud de arco de una curva por integrales (Ejemplo 1)" }
     ]
   },
   {
-    n: "05",
+    n: "10",
     titulo: "Aplicaciones a la física (Cinemática)",
     resumen: "Modelado del movimiento lineal: cálculo de la posición y velocidad mediante antiderivadas.",
     concepto: "En la física, la integración reconstruye variables dinámicas a partir de sus tasas de cambio. Si se conoce la función de aceleración a(t), integrarla respecto al tiempo arroja la velocidad v(t); e integrar esta última genera la posición s(t).",
@@ -432,8 +541,8 @@ const segundoParcial = [
       resultado: "Posición s(3) = 18 metros"
     },
     videos: [
-      { id: "gqB1b8kYVf8", canal: "julioprofe", name: "Aplicación de la integral en Física: Cinemática - Ejercicio 1" },
-      { id: "_E9vUksWc38", canal: "MateFacil", name: "Obtener velocidad y posición a partir de la aceleración usando integrales" }
+      { id: "dgaD_q7k8U4", canal: "julioprofe", name: "Aplicación de la integral en Física: Cinemática - Ejercicio 1" },
+      { id: "sUz94S9X_H4", canal: "MateFacil", name: "Obtener velocidad y posición a partir de la aceleración usando integrales" }
     ]
   }
 ];
@@ -528,7 +637,6 @@ function renderizarTemas(arr, contenedorId) {
 
 function toggleTema(cardElement) {
   const isOpen = cardElement.classList.contains('open');
-  // Se cambia a '.topic.card' para seleccionar correctamente el elemento con ambas clases
   const hermanos = cardElement.parentElement.querySelectorAll('.topic.card');
   hermanos.forEach((c) => c.classList.remove('open'));
 
@@ -544,4 +652,3 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 </body>
 </html>
-
