@@ -216,7 +216,8 @@
   }
   .video-card:hover{border-color:var(--azul-medio); transform:translateY(-2px);}
   .video-thumb{
-    position:relative; aspect-ratio:16/9; background:var(--azul-profundo);
+    position:relative; aspect-ratio:16/9;
+    background:linear-gradient(135deg, var(--azul-tinta), var(--azul-profundo) 55%, var(--azul-medio));
   }
   .video-thumb img{width:100%; height:100%; object-fit:cover; display:block;}
   .play{
@@ -241,7 +242,11 @@
   .featured-video p{color:#CFE3F7; font-size:14.5px;}
   .featured-video .btn-primary{background:#fff; color:var(--azul-tinta); margin-top:14px;}
   .featured-video .btn-primary:hover{background:var(--azul-hielo);}
-  .featured-frame{border-radius:14px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.35); aspect-ratio:16/9; position:relative; display:block; text-decoration:none;}
+  .featured-frame{
+    border-radius:14px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.35);
+    aspect-ratio:16/9; position:relative; display:block; text-decoration:none;
+    background:linear-gradient(135deg, var(--azul-tinta), var(--azul-profundo) 55%, var(--azul-medio));
+  }
   .featured-frame img{width:100%; height:100%; object-fit:cover; display:block;}
   .featured-frame .play{
     position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
@@ -338,7 +343,461 @@
     <p>Las técnicas fundamentales para resolver integrales: desde la definición básica hasta la sustitución trigonométrica. Haz clic en cada tema para ver el concepto, la fórmula y videos de apoyo.</p>
   </div>
 
-  <div class="topics" id="topics-p1"></div>
+  <div class="topics" id="topics-p1"><div class="topic-card" id="p1-card-0">
+      <span class="num">Tema 01</span>
+      <div class="toggle">+</div>
+      <h4>Integrales Definidas e Indefinidas</h4>
+      <p>La base de todo el cálculo integral: antiderivadas y el Teorema Fundamental.</p>
+    </div><div class="topic-detail" id="p1-card-0-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">Una integral indefinida ∫f(x)dx representa a toda la familia de antiderivadas de f(x), es decir, todas las funciones F(x) cuya derivada es f(x); por eso siempre se agrega la constante de integración C. Una integral definida ∫[a→b] f(x)dx en cambio es un número: representa el área neta bajo la curva de f(x) entre x=a y x=b, y se calcula con el Teorema Fundamental del Cálculo.</p>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">∫ f(x) dx = F(x) + C
+
+∫[a→b] f(x) dx = F(b) − F(a)</div>
+        <p class="formula-note">F(x) es cualquier antiderivada de f(x). En la definida, la constante C se cancela al restar.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Resolver la integral indefinida ∫(3x² + 2x) dx y luego evaluar la integral definida ∫[0→2] (3x² + 2x) dx.</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Se integra término a término usando la regla de la potencia ∫xⁿdx = xⁿ⁺¹/(n+1).</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">∫3x² dx = x³ y ∫2x dx = x². La antiderivada indefinida es:</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">F(x) = x³ + x² + C</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">Para la integral definida se evalúa F(x) en los límites: F(2) − F(0).</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">F(2) = 2³ + 2² = 8 + 4 = 12</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">6</div>
+              <div class="txt">F(0) = 0³ + 0² = 0</div>
+            </div>
+
+          <div class="exercise-result">✔ ∫(3x²+2x)dx = x³ + x² + C   |   ∫[0→2](3x²+2x)dx = 12</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=wuI5MFhvgsY" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/wuI5MFhvgsY/hqdefault.jpg" alt="Integrales definidas · Ejercicio 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="wuI5MFhvgsY">Ver canal en YouTube</div>
+          <div class="titulo">Integrales definidas · Ejercicio 1</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=U8KRcmzwT-U" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/U8KRcmzwT-U/hqdefault.jpg" alt="¿Qué son las integrales definidas e indefinidas?" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="U8KRcmzwT-U">Ver canal en YouTube</div>
+          <div class="titulo">¿Qué son las integrales definidas e indefinidas?</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=d7Y9Om4KCUM" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/d7Y9Om4KCUM/hqdefault.jpg" alt="Integrales · Introducción" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="d7Y9Om4KCUM">Ver canal en YouTube</div>
+          <div class="titulo">Integrales · Introducción</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div><div class="topic-card" id="p1-card-1">
+      <span class="num">Tema 02</span>
+      <div class="toggle">+</div>
+      <h4>Integración por partes</h4>
+      <p>El método basado en la regla del producto para derivadas, aplicado en reversa.</p>
+    </div><div class="topic-detail" id="p1-card-1-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">Se usa cuando el integrando es un producto de dos funciones de distinta naturaleza (por ejemplo un polinomio por una exponencial, o un logaritmo por x). La clave está en elegir bien u y dv siguiendo el orden LIATE (Logarítmica, Inversa trigonométrica, Algebraica, Trigonométrica, Exponencial) para que la nueva integral ∫v du sea más sencilla que la original.</p>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">∫ u dv = u·v − ∫ v du</div>
+        <p class="formula-note">Se deriva u y se integra dv. Si la nueva integral sigue siendo compleja, se repite el proceso.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Resolver ∫ x·eˣ dx usando integración por partes.</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Se elige u = x (se deriva) y dv = eˣ dx (se integra), siguiendo el orden LIATE.</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Entonces du = dx y v = eˣ.</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">Se aplica la fórmula ∫u dv = uv − ∫v du:</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">∫x·eˣ dx = x·eˣ − ∫eˣ dx</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">Se resuelve la integral restante: ∫eˣ dx = eˣ</div>
+            </div>
+
+          <div class="exercise-result">✔ ∫ x·eˣ dx = x·eˣ − eˣ + C</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=_T7AE2KEaJY" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/_T7AE2KEaJY/hqdefault.jpg" alt="Integrales por partes · Ejercicio 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="_T7AE2KEaJY">Ver canal en YouTube</div>
+          <div class="titulo">Integrales por partes · Ejercicio 1</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=VSlbr4IM9Co" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/VSlbr4IM9Co/hqdefault.jpg" alt="Integración por sustitución y partes · Ej. 6" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="VSlbr4IM9Co">Ver canal en YouTube</div>
+          <div class="titulo">Integración por sustitución y partes · Ej. 6</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=4u2vi0ZhCng" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/4u2vi0ZhCng/hqdefault.jpg" alt="Integrales por partes y sustitución trigonométrica" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="4u2vi0ZhCng">Ver canal en YouTube</div>
+          <div class="titulo">Integrales por partes y sustitución trigonométrica</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div><div class="topic-card" id="p1-card-2">
+      <span class="num">Tema 03</span>
+      <div class="toggle">+</div>
+      <h4>Integral por cambio de variable</h4>
+      <p>También llamado método de sustitución: simplifica la integral con una nueva variable u.</p>
+    </div><div class="topic-detail" id="p1-card-2-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">Consiste en identificar una parte del integrando como una nueva variable u = g(x), de modo que du = g'(x)dx aparezca (o pueda hacerse aparecer) en la integral. Esto transforma una integral complicada en una integral básica en términos de u, que luego se devuelve a la variable original.</p>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">Sea u = g(x), du = g'(x) dx
+
+∫ f(g(x))·g'(x) dx = ∫ f(u) du</div>
+        <p class="formula-note">Es el método más usado como primer intento antes de recurrir a partes o sustitución trigonométrica.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Resolver ∫ 2x·(x²+1)⁴ dx mediante cambio de variable.</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Se identifica u = x² + 1, porque su derivada aparece en el integrando.</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Se deriva: du = 2x dx (¡coincide exactamente con lo que sobra en la integral!).</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">Se sustituye: ∫2x(x²+1)⁴ dx = ∫u⁴ du</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">Se integra en términos de u: ∫u⁴ du = u⁵/5 + C</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">Se regresa a la variable original reemplazando u = x²+1.</div>
+            </div>
+
+          <div class="exercise-result">✔ ∫ 2x·(x²+1)⁴ dx = (x²+1)⁵ / 5 + C</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=rWrbdwlPEkE" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/rWrbdwlPEkE/hqdefault.jpg" alt="Integrales por sustitución · Ej. 29" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="rWrbdwlPEkE">Ver canal en YouTube</div>
+          <div class="titulo">Integrales por sustitución · Ej. 29</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=5Ej7FPMxmPA" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/5Ej7FPMxmPA/hqdefault.jpg" alt="Integrales por cambio de variable · Video 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="5Ej7FPMxmPA">Ver canal en YouTube</div>
+          <div class="titulo">Integrales por cambio de variable · Video 1</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=KooaSuEAsf4" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/KooaSuEAsf4/hqdefault.jpg" alt="Integración por sustitución · Ejercicio 16" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="KooaSuEAsf4">Ver canal en YouTube</div>
+          <div class="titulo">Integración por sustitución · Ejercicio 16</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div><div class="topic-card" id="p1-card-3">
+      <span class="num">Tema 04</span>
+      <div class="toggle">+</div>
+      <h4>Integrales trigonométricas (tipo 1, 2, 3, 4)</h4>
+      <p>Potencias y productos de funciones trigonométricas: seno, coseno, tangente y secante.</p>
+    </div><div class="topic-detail" id="p1-card-3-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">Se clasifican según la combinación de funciones y la paridad de sus exponentes. Tipo 1: potencias impares de seno o coseno (se separa un factor y se usa la identidad pitagórica). Tipo 2: potencias pares de seno y coseno (se usan identidades de ángulo doble). Tipo 3: potencias de tangente y secante. Tipo 4: productos de seno y coseno con ángulos distintos (se usan fórmulas de producto a suma).</p>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">sin²x + cos²x = 1
+tan²x + 1 = sec²x
+sin²x = (1−cos2x)/2
+cos²x = (1+cos2x)/2</div>
+        <p class="formula-note">Identificar primero si las potencias son pares o impares determina qué identidad conviene aplicar.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Resolver ∫ sin³x dx (potencia impar de seno).</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Como la potencia es impar, se separa un factor de seno: sin³x = sin²x · sinx.</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Se usa la identidad pitagórica: sin²x = 1 − cos²x.</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">La integral queda: ∫(1 − cos²x)·sinx dx</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">Se sustituye u = cosx, du = −sinx dx, entonces sinx dx = −du.</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">∫(1−u²)(−du) = −∫(1−u²)du = −u + u³/3 + C</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">6</div>
+              <div class="txt">Se regresa a la variable original reemplazando u = cosx.</div>
+            </div>
+
+          <div class="exercise-result">✔ ∫ sin³x dx = −cosx + cos³x/3 + C</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=aV3RC0Eh-SQ" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/aV3RC0Eh-SQ/hqdefault.jpg" alt="Integrales trigonométricas · Ej. 5" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="aV3RC0Eh-SQ">Ver canal en YouTube</div>
+          <div class="titulo">Integrales trigonométricas · Ej. 5</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=Q9ru6AuREaw" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/Q9ru6AuREaw/hqdefault.jpg" alt="Integrales trigonométricas · Ej. 3 (sen²x)" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="Q9ru6AuREaw">Ver canal en YouTube</div>
+          <div class="titulo">Integrales trigonométricas · Ej. 3 (sen²x)</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=YnNqR370myg" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/YnNqR370myg/hqdefault.jpg" alt="Integración de potencias trigonométricas · Ejemplo 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="YnNqR370myg">Ver canal en YouTube</div>
+          <div class="titulo">Integración de potencias trigonométricas · Ejemplo 1</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div><div class="topic-card" id="p1-card-4">
+      <span class="num">Tema 05</span>
+      <div class="toggle">+</div>
+      <h4>Integral por sustitución trigonométrica</h4>
+      <p>Para integrandos con raíces del tipo √(a²−x²), √(a²+x²) o √(x²−a²).</p>
+    </div><div class="topic-detail" id="p1-card-4-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">Cuando aparece una raíz cuadrada de una suma o diferencia de cuadrados, se sustituye x por una función trigonométrica (seno, tangente o secante) para eliminar la raíz usando identidades pitagóricas, formando un triángulo de referencia para regresar a la variable original al final.</p>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">√(a²−x²)  →  x = a·sen θ
+√(a²+x²)  →  x = a·tan θ
+√(x²−a²)  →  x = a·sec θ</div>
+        <p class="formula-note">Al final se usa un triángulo rectángulo para expresar θ de nuevo en función de x.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Resolver ∫ dx / √(4 − x²) mediante sustitución trigonométrica.</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">La raíz tiene la forma √(a²−x²) con a = 2, así que se sustituye x = 2·senθ.</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Entonces dx = 2·cosθ dθ y √(4−x²) = √(4−4sen²θ) = 2·cosθ.</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">Se sustituye en la integral: ∫ (2·cosθ dθ) / (2·cosθ) = ∫ dθ</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">Se integra directamente: ∫dθ = θ + C</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">Se regresa a x usando θ = arcsen(x/2).</div>
+            </div>
+
+          <div class="exercise-result">✔ ∫ dx / √(4−x²) = arcsen(x/2) + C</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=jjqvOjQFnhI" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/jjqvOjQFnhI/hqdefault.jpg" alt="Sustitución trigonométrica · Ej. 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="jjqvOjQFnhI">Ver canal en YouTube</div>
+          <div class="titulo">Sustitución trigonométrica · Ej. 1</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=qzG4_jtwcXU" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/qzG4_jtwcXU/hqdefault.jpg" alt="Sustitución trigonométrica · Ej. 5" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="qzG4_jtwcXU">Ver canal en YouTube</div>
+          <div class="titulo">Sustitución trigonométrica · Ej. 5</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=XvMN-DnTjIY" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/XvMN-DnTjIY/hqdefault.jpg" alt="Sustitución trigonométrica · Ejercicio 9" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="XvMN-DnTjIY">Ver canal en YouTube</div>
+          <div class="titulo">Sustitución trigonométrica · Ejercicio 9</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div></div>
 </section>
 
 <!-- ===================== SEGUNDO PARCIAL ===================== -->
@@ -349,18 +808,523 @@
     <p>Una vez dominadas las técnicas de integración, se aplican para resolver problemas geométricos y físicos: áreas, volúmenes, longitudes de curva y cinemática.</p>
   </div>
 
-  <div class="topics" id="topics-p2"></div>
+  <div class="topics" id="topics-p2"><div class="topic-card" id="p2-card-0">
+      <span class="num">Tema 01</span>
+      <div class="toggle">+</div>
+      <h4>Integración de funciones racionales (fracciones parciales)</h4>
+      <p>Caso I: factores lineales no repetidos · Caso II: factores lineales repetidos.</p>
+    </div><div class="topic-detail" id="p2-card-0-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">Cuando el integrando es una fracción de polinomios, se descompone en una suma de fracciones más simples antes de integrar. Caso I: si el denominador se factoriza en factores lineales distintos, a cada uno le corresponde una fracción con una constante en el numerador. Caso II: si un factor lineal se repite k veces, le corresponden k fracciones, una por cada potencia del factor de 1 hasta k.</p>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">Caso I:  P(x)/[(x−a)(x−b)] = A/(x−a) + B/(x−b)
+
+Caso II: P(x)/(x−a)^k = A₁/(x−a) + A₂/(x−a)² + … + Aₖ/(x−a)^k</div>
+        <p class="formula-note">El grado del numerador debe ser menor que el del denominador; si no, primero se hace división de polinomios.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Resolver ∫ (3x+5) / [(x−1)(x+2)] dx (Caso I: factores lineales no repetidos).</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Se plantea la descomposición: (3x+5)/[(x−1)(x+2)] = A/(x−1) + B/(x+2)</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Se multiplica ambos lados por (x−1)(x+2): 3x+5 = A(x+2) + B(x−1)</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">Se evalúa en x = 1: 8 = A(3) → A = 8/3</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">Se evalúa en x = −2: −1 = B(−3) → B = 1/3</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">Se integra cada fracción por separado: ∫A/(x−1)dx + ∫B/(x+2)dx</div>
+            </div>
+
+          <div class="exercise-result">✔ ∫(3x+5)/[(x−1)(x+2)] dx = (8/3)ln|x−1| + (1/3)ln|x+2| + C</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=YofhFP7RcmE" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/YofhFP7RcmE/hqdefault.jpg" alt="Fracciones parciales · Caso I (factores no repetidos)" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="YofhFP7RcmE">Ver canal en YouTube</div>
+          <div class="titulo">Fracciones parciales · Caso I (factores no repetidos)</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=Lhb4kRTbh3w" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/Lhb4kRTbh3w/hqdefault.jpg" alt="Integración por fracciones parciales · Caso 1, Ej. 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="Lhb4kRTbh3w">Ver canal en YouTube</div>
+          <div class="titulo">Integración por fracciones parciales · Caso 1, Ej. 1</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=FevMzeykpaY" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/FevMzeykpaY/hqdefault.jpg" alt="Caso II: Factores lineales repetidos" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="FevMzeykpaY">Ver canal en YouTube</div>
+          <div class="titulo">Caso II: Factores lineales repetidos</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=jTxpr8RFQKo" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/jTxpr8RFQKo/hqdefault.jpg" alt="Fracciones parciales · Ejemplo 11, factores repetidos" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="jTxpr8RFQKo">Ver canal en YouTube</div>
+          <div class="titulo">Fracciones parciales · Ejemplo 11, factores repetidos</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div><div class="topic-card" id="p2-card-1">
+      <span class="num">Tema 02</span>
+      <div class="toggle">+</div>
+      <h4>Área bajo la curva</h4>
+      <p>Sus fórmulas, gráficas y variantes: área entre el eje X y una función, y área entre dos curvas.</p>
+    </div><div class="topic-detail" id="p2-card-1-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">El área de la región R limitada por la gráfica de f(x), el eje X y las rectas x=a, x=b se calcula con la integral definida de f en [a,b]. Cuando f(x) es negativa en parte del intervalo, se usa el valor absoluto para que el área no salga negativa. Si la región está limitada por dos curvas (RL: región limitada), se integra la diferencia entre la curva superior y la inferior.</p>
+
+      <h5>Gráfica</h5>
+      <div class="graph-box">
+        <svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg">
+      <line x1="40" y1="250" x2="410" y2="250" stroke="#0A2E5C" stroke-width="1.5"></line>
+      <line x1="60" y1="270" x2="60" y2="20" stroke="#0A2E5C" stroke-width="1.5"></line>
+      <path d="M60,250 C100,246 160,215 200,132 L200,250 Z" fill="#5FB3F0" fill-opacity="0.35" stroke="none"></path>
+      <path d="M60,250 C100,246 160,215 260,60" fill="none" stroke="#0F4C9C" stroke-width="2.5"></path>
+      <line x1="200" y1="250" x2="200" y2="132" stroke-dasharray="4 4" stroke="#0A2E5C" stroke-width="1"></line>
+      <text x="55" y="270" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">a</text>
+      <text x="196" y="270" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">b</text>
+      <text x="270" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#0F4C9C">y = f(x)</text>
+      <text x="105" y="220" font-family="JetBrains Mono, monospace" font-size="13" fill="#0A2E5C">Área = ∫[a→b] f(x)dx</text>
+      <text x="415" y="255" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">x</text>
+      <text x="45" y="25" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">y</text>
+    </svg>
+        <div class="graph-caption">Representación gráfica del tema · Área bajo la curva</div>
+      </div>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">Área bajo la curva:
+A = ∫[a→b] |f(x)| dx
+
+Área entre dos curvas (f arriba de g):
+A = ∫[a→b] [f(x) − g(x)] dx</div>
+        <p class="formula-note">Siempre conviene graficar la región y hallar los puntos de intersección antes de plantear la integral.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Calcular el área bajo la curva f(x) = x² entre x = 0 y x = 2.</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Se plantea la integral definida: A = ∫[0→2] x² dx</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Se halla la antiderivada: ∫x² dx = x³/3</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">Se evalúa en los límites: A = [x³/3] desde 0 hasta 2</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">A = (2³/3) − (0³/3) = 8/3 − 0</div>
+            </div>
+
+          <div class="exercise-result">✔ Área = 8/3 unidades² ≈ 2.67 u²</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=V7WnsXYJZaM" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/V7WnsXYJZaM/hqdefault.jpg" alt="Área bajo una curva · Ejercicio 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="V7WnsXYJZaM">Ver canal en YouTube</div>
+          <div class="titulo">Área bajo una curva · Ejercicio 1</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=zOifhTHi3qk" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/zOifhTHi3qk/hqdefault.jpg" alt="Área bajo una curva · Ej. 3 (con calculadora)" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="zOifhTHi3qk">Ver canal en YouTube</div>
+          <div class="titulo">Área bajo una curva · Ej. 3 (con calculadora)</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=0hs3v3lilT8" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/0hs3v3lilT8/hqdefault.jpg" alt="Área entre curvas · Ej. 5" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="0hs3v3lilT8">Ver canal en YouTube</div>
+          <div class="titulo">Área entre curvas · Ej. 5</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div><div class="topic-card" id="p2-card-2">
+      <span class="num">Tema 03</span>
+      <div class="toggle">+</div>
+      <h4>Volúmenes · Sólidos de revolución</h4>
+      <p>Sus fórmulas y gráficas: método de discos y método de arandelas.</p>
+    </div><div class="topic-detail" id="p2-card-2-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">Al girar una región plana alrededor de un eje se genera un sólido de revolución. Si la región toca el eje de giro se usa el método de discos (secciones circulares macizas); si hay un hueco entre la región y el eje se usa el método de arandelas (secciones en forma de anillo), restando el volumen del radio interior al del radio exterior.</p>
+
+      <h5>Gráfica</h5>
+      <div class="graph-box">
+        <svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg">
+      <line x1="20" y1="150" x2="200" y2="150" stroke="#0A2E5C" stroke-width="1.2"></line>
+      <line x1="35" y1="260" x2="35" y2="40" stroke="#0A2E5C" stroke-width="1.2"></line>
+      <path d="M35,150 C60,150 100,120 170,70 L170,150 Z" fill="#5FB3F0" fill-opacity="0.35" stroke="none"></path>
+      <path d="M35,150 C60,150 100,120 170,70" fill="none" stroke="#0F4C9C" stroke-width="2.5"></path>
+      <line x1="170" y1="150" x2="170" y2="70" stroke-dasharray="3 3" stroke="#0A2E5C" stroke-width="1"></line>
+      <text x="10" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">y</text>
+      <text x="195" y="165" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">x</text>
+      <text x="60" y="135" font-family="JetBrains Mono, monospace" font-size="11" fill="#0F4C9C">y = f(x)</text>
+      <text x="60" y="200" font-family="Inter, sans-serif" font-size="11" fill="#4A6178">Región plana</text>
+      <line x1="230" y1="150" x2="420" y2="150" stroke="#0A2E5C" stroke-width="1" stroke-dasharray="4 4"></line>
+      <path d="M240,150 Q240,90 260,90 Q330,80 390,110 Q400,150 390,150" fill="none" stroke="none"></path>
+      <ellipse cx="248" cy="150" rx="8" ry="42" fill="#5FB3F0" fill-opacity="0.25" stroke="#0F4C9C" stroke-width="1.2"></ellipse>
+      <path d="M248,108 C300,80 360,90 392,118" fill="none" stroke="#0F4C9C" stroke-width="2.2"></path>
+      <path d="M248,192 C300,215 360,205 392,178" fill="none" stroke="#0F4C9C" stroke-width="2.2"></path>
+      <ellipse cx="320" cy="150" rx="7" ry="66" fill="#5FB3F0" fill-opacity="0.15" stroke="#1E7FD9" stroke-width="1" stroke-dasharray="3 3"></ellipse>
+      <ellipse cx="392" cy="148" rx="10" ry="30" fill="#5FB3F0" fill-opacity="0.3" stroke="#0F4C9C" stroke-width="1.2"></ellipse>
+      <text x="280" y="230" font-family="Inter, sans-serif" font-size="11" fill="#4A6178">Sólido de revolución</text>
+      <text x="290" y="248" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">(gira alrededor del eje X)</text>
+    </svg>
+        <div class="graph-caption">Representación gráfica del tema · Volúmenes · Sólidos de revolución</div>
+      </div>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">Método de discos (eje X):
+V = π ∫[a→b] [f(x)]² dx
+
+Método de arandelas:
+V = π ∫[a→b] [R(x)² − r(x)²] dx</div>
+        <p class="formula-note">R(x) es el radio exterior (curva más lejana al eje) y r(x) el radio interior (curva más cercana al eje).</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">La región bajo la curva y = √x, entre x = 0 y x = 4, gira alrededor del eje X. Calcular el volumen del sólido generado (método de discos).</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Se identifica el radio del disco: R(x) = f(x) = √x</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Se plantea la fórmula del método de discos: V = π ∫[0→4] [√x]² dx</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">Se simplifica el integrando: [√x]² = x, entonces V = π ∫[0→4] x dx</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">Se integra: ∫x dx = x²/2</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">Se evalúa entre 0 y 4: V = π[(4²/2) − (0²/2)] = π(8 − 0)</div>
+            </div>
+
+          <div class="exercise-result">✔ Volumen = 8π unidades³ ≈ 25.13 u³</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=BgJhiXhuFhk" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/BgJhiXhuFhk/hqdefault.jpg" alt="Volumen de sólido de revolución (Discos) · Ej. 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="BgJhiXhuFhk">Ver canal en YouTube</div>
+          <div class="titulo">Volumen de sólido de revolución (Discos) · Ej. 1</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=QQDrbzHQfO4" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/QQDrbzHQfO4/hqdefault.jpg" alt="Volumen de sólido de revolución (Arandelas) · Ej. 6" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="QQDrbzHQfO4">Ver canal en YouTube</div>
+          <div class="titulo">Volumen de sólido de revolución (Arandelas) · Ej. 6</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=QyIWrbnTVM4" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/QyIWrbnTVM4/hqdefault.jpg" alt="Volumen de sólidos de revolución #1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="QyIWrbnTVM4">Ver canal en YouTube</div>
+          <div class="titulo">Volumen de sólidos de revolución #1</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div><div class="topic-card" id="p2-card-3">
+      <span class="num">Tema 04</span>
+      <div class="toggle">+</div>
+      <h4>Longitud de curva</h4>
+      <p>Sus variantes y fórmulas: forma explícita y forma paramétrica.</p>
+    </div><div class="topic-detail" id="p2-card-3-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">La longitud de arco de una curva se obtiene sumando infinitos segmentos infinitesimales sobre la curva. Si la curva está dada como y=f(x), se usa la derivada dy/dx dentro de la fórmula. Si está dada en forma paramétrica x(t), y(t), se usan las derivadas respecto al parámetro t.</p>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">Forma explícita:
+L = ∫[a→b] √(1 + (dy/dx)²) dx
+
+Forma paramétrica:
+L = ∫[a→b] √((dx/dt)² + (dy/dt)²) dt</div>
+        <p class="formula-note">En coordenadas polares se usa una fórmula análoga con r(θ) y dr/dθ.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Calcular la longitud de la curva f(x) = (2/3)x^(3/2) entre x = 0 y x = 3.</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Se deriva la función: dy/dx = x^(1/2)</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Se eleva al cuadrado: (dy/dx)² = x</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">Se sustituye en la fórmula: L = ∫[0→3] √(1 + x) dx</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">Se integra usando u = 1+x, du = dx: ∫√u du = (2/3)u^(3/2)</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">Se evalúa entre los límites: L = (2/3)[(1+x)^(3/2)] desde 0 hasta 3</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">6</div>
+              <div class="txt">L = (2/3)[(4)^(3/2) − (1)^(3/2)] = (2/3)[8 − 1]</div>
+            </div>
+
+          <div class="exercise-result">✔ Longitud = 14/3 unidades ≈ 4.67 u</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=6pxVMhl73SY" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/6pxVMhl73SY/hqdefault.jpg" alt="Longitud de arco de una ecuación paramétrica · Ej. 1" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="6pxVMhl73SY">Ver canal en YouTube</div>
+          <div class="titulo">Longitud de arco de una ecuación paramétrica · Ej. 1</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=X46oG34baWs" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/X46oG34baWs/hqdefault.jpg" alt="Longitud de arco paramétrica · Ej. 3" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="X46oG34baWs">Ver canal en YouTube</div>
+          <div class="titulo">Longitud de arco paramétrica · Ej. 3</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=kZdgeJaHhPs" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/kZdgeJaHhPs/hqdefault.jpg" alt="Longitud de arco con ecuaciones paramétricas · Introducción" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="kZdgeJaHhPs">Ver canal en YouTube</div>
+          <div class="titulo">Longitud de arco con ecuaciones paramétricas · Introducción</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div><div class="topic-card" id="p2-card-4">
+      <span class="num">Tema 05</span>
+      <div class="toggle">+</div>
+      <h4>Cinemática</h4>
+      <p>Posición, velocidad y aceleración obtenidas mediante integración.</p>
+    </div><div class="topic-detail" id="p2-card-4-detail">
+      <div class="detail-inner">
+        <h5>Concepto</h5>
+        <p class="concepto">En cinemática, la velocidad es la antiderivada de la aceleración y la posición es la antiderivada de la velocidad. A partir de la función de aceleración a(t) y las condiciones iniciales (posición y velocidad en t=0), se puede reconstruir por completo el movimiento de una partícula usando integrales definidas.</p>
+
+        <h5>Fórmula</h5>
+        <div class="formula-box">v(t) = v₀ + ∫[0→t] a(τ) dτ
+
+x(t) = x₀ + ∫[0→t] v(τ) dτ</div>
+        <p class="formula-note">Las condiciones iniciales x₀ y v₀ son indispensables para determinar las constantes de integración.</p>
+
+      <h5>Ejercicio de ejemplo</h5>
+      <div class="exercise-box">
+        <div class="exercise-head">
+          <span class="tag">Ejercicio</span>
+          <span class="enun">Una partícula tiene aceleración a(t) = 6t. Si v(0) = 2 y x(0) = 0, hallar v(t), x(t) y sus valores en t = 2.</span>
+        </div>
+        <div class="exercise-body">
+
+            <div class="exercise-step">
+              <div class="dot">1</div>
+              <div class="txt">Se integra la aceleración para obtener la velocidad: v(t) = ∫6t dt = 3t² + C₁</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">2</div>
+              <div class="txt">Se usa la condición inicial v(0)=2: 3(0)²+C₁=2 → C₁=2, entonces v(t) = 3t² + 2</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">3</div>
+              <div class="txt">Se integra la velocidad para obtener la posición: x(t) = ∫(3t²+2) dt = t³ + 2t + C₂</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">4</div>
+              <div class="txt">Se usa la condición inicial x(0)=0: (0)³+2(0)+C₂=0 → C₂=0, entonces x(t) = t³ + 2t</div>
+            </div>
+
+            <div class="exercise-step">
+              <div class="dot">5</div>
+              <div class="txt">Se evalúan en t=2: v(2) = 3(4)+2 = 14  ·  x(2) = 8+4 = 12</div>
+            </div>
+
+          <div class="exercise-result">✔ v(t) = 3t² + 2  →  v(2) = 14   |   x(t) = t³ + 2t  →  x(2) = 12</div>
+        </div>
+      </div>
+
+        <h5>Videos de apoyo</h5>
+        <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=ltRo5CswLRI" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/ltRo5CswLRI/hqdefault.jpg" alt="Aplicación de integrales en cinemática · Aceleración variable" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="ltRo5CswLRI">Ver canal en YouTube</div>
+          <div class="titulo">Aplicación de integrales en cinemática · Aceleración variable</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=88INt4uSutk" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/88INt4uSutk/hqdefault.jpg" alt="Velocidad y posición a partir de la aceleración" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="88INt4uSutk">Ver canal en YouTube</div>
+          <div class="titulo">Velocidad y posición a partir de la aceleración</div>
+        </div>
+      </a>
+
+      <a class="video-card" href="https://www.youtube.com/watch?v=eu8htnVgf4k" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://i.ytimg.com/vi/eu8htnVgf4k/hqdefault.jpg" alt="Posición y velocidad por integración" loading="lazy" onerror="this.onerror=null;this.remove();">
+          <div class="play"><span>▶</span></div>
+        </div>
+        <div class="video-info">
+          <div class="canal" data-vid="eu8htnVgf4k">Ver canal en YouTube</div>
+          <div class="titulo">Posición y velocidad por integración</div>
+        </div>
+      </a>
+    </div>
+      </div>
+    </div></div>
 
   <div class="featured-video">
     <div>
       <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:#fff; border-color:rgba(255,255,255,0.2);">Video destacado</span>
       <h3>Volumen de sólidos de revolución</h3>
       <p>Un repaso visual de cómo una región plana, al girar alrededor de un eje, genera un sólido de revolución y cómo calcular su volumen mediante integrales.</p>
-      <a class="btn btn-primary" href="https://www.youtube.com/watch?v=BgJhiXhuFhk" target="_blank" rel="noopener">Ver en YouTube ↗️</a>
+      <a class="btn btn-primary" href="https://www.youtube.com/watch?v=BgJhiXhuFhk" target="_blank" rel="noopener">Ver en YouTube ↗</a>
     </div>
     <a class="featured-frame" href="https://www.youtube.com/watch?v=BgJhiXhuFhk" target="_blank" rel="noopener">
-      <img src="https://i.ytimg.com/vi/BgJhiXhuFhk/hqdefault.jpg" alt="Volumen de sólidos de revolución" loading="lazy">
-      <div class="play"><span>▶️</span></div>
+      <img src="https://i.ytimg.com/vi/BgJhiXhuFhk/hqdefault.jpg" alt="Volumen de sólidos de revolución" loading="lazy" onerror="this.onerror=null;this.remove();">
+      <div class="play"><span>▶</span></div>
     </a>
   </div>
 </section>
@@ -382,11 +1346,11 @@
         <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:#fff; border-color:rgba(255,255,255,0.2);">Introducción</span>
         <h3>¿Qué es el Cálculo Integral?</h3>
         <p>Un repaso de dónde surge el concepto de integral, su relación con el área bajo la curva y por qué es la base de toda la materia.</p>
-        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=d7Y9Om4KCUM" target="_blank" rel="noopener">Ver en YouTube ↗️</a>
+        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=d7Y9Om4KCUM" target="_blank" rel="noopener">Ver en YouTube ↗</a>
       </div>
       <a class="featured-frame" href="https://www.youtube.com/watch?v=d7Y9Om4KCUM" target="_blank" rel="noopener">
-        <img src="https://i.ytimg.com/vi/d7Y9Om4KCUM/hqdefault.jpg" alt="Qué es el cálculo integral" loading="lazy">
-        <div class="play"><span>▶️</span></div>
+        <img src="https://i.ytimg.com/vi/d7Y9Om4KCUM/hqdefault.jpg" alt="Qué es el cálculo integral" loading="lazy" onerror="this.onerror=null;this.remove();">
+        <div class="play"><span>▶</span></div>
       </a>
     </div>
 
@@ -418,373 +1382,13 @@
 </footer>
 
 <script>
-// ---------- DATOS DE LOS TEMAS ----------
-const primerParcial = [
-  {
-    n:"01",
-    titulo:"Integrales Definidas e Indefinidas",
-    resumen:"La base de todo el cálculo integral: antiderivadas y el Teorema Fundamental.",
-    concepto:"Una integral indefinida ∫f(x)dx representa a toda la familia de antiderivadas de f(x), es decir, todas las funciones F(x) cuya derivada es f(x); por eso siempre se agrega la constante de integración C. Una integral definida ∫[a→b] f(x)dx en cambio es un número: representa el área neta bajo la curva de f(x) entre x=a y x=b, y se calcula con el Teorema Fundamental del Cálculo.",
-    formula:"∫ f(x) dx = F(x) + C\n\n∫[a→b] f(x) dx = F(b) − F(a)",
-    nota:"F(x) es cualquier antiderivada de f(x). En la definida, la constante C se cancela al restar.",
-    ejercicio:{
-      enun:"Resolver la integral indefinida ∫(3x² + 2x) dx y luego evaluar la integral definida ∫[0→2] (3x² + 2x) dx.",
-      pasos:[
-        "Se integra término a término usando la regla de la potencia ∫xⁿdx = xⁿ⁺¹/(n+1).",
-        "∫3x² dx = x³ y ∫2x dx = x². La antiderivada indefinida es:", 
-        "F(x) = x³ + x² + C",
-        "Para la integral definida se evalúa F(x) en los límites: F(2) − F(0).",
-        "F(2) = 2³ + 2² = 8 + 4 = 12",
-        "F(0) = 0³ + 0² = 0",
-      ],
-      resultado:"∫(3x²+2x)dx = x³ + x² + C   |   ∫[0→2](3x²+2x)dx = 12"
-    },
-    videos:[
-      {id:"wuI5MFhvgsY", titulo:"Integrales definidas · Ejercicio 1"},
-      {id:"U8KRcmzwT-U", titulo:"¿Qué son las integrales definidas e indefinidas?"},
-      {id:"d7Y9Om4KCUM", titulo:"Integrales · Introducción"},
-    ]
-  },
-  {
-    n:"02",
-    titulo:"Integración por partes",
-    resumen:"El método basado en la regla del producto para derivadas, aplicado en reversa.",
-    concepto:"Se usa cuando el integrando es un producto de dos funciones de distinta naturaleza (por ejemplo un polinomio por una exponencial, o un logaritmo por x). La clave está en elegir bien u y dv siguiendo el orden LIATE (Logarítmica, Inversa trigonométrica, Algebraica, Trigonométrica, Exponencial) para que la nueva integral ∫v du sea más sencilla que la original.",
-    formula:"∫ u dv = u·v − ∫ v du",
-    nota:"Se deriva u y se integra dv. Si la nueva integral sigue siendo compleja, se repite el proceso.",
-    ejercicio:{
-      enun:"Resolver ∫ x·eˣ dx usando integración por partes.",
-      pasos:[
-        "Se elige u = x (se deriva) y dv = eˣ dx (se integra), siguiendo el orden LIATE.",
-        "Entonces du = dx y v = eˣ.",
-        "Se aplica la fórmula ∫u dv = uv − ∫v du:",
-        "∫x·eˣ dx = x·eˣ − ∫eˣ dx",
-        "Se resuelve la integral restante: ∫eˣ dx = eˣ",
-      ],
-      resultado:"∫ x·eˣ dx = x·eˣ − eˣ + C"
-    },
-    videos:[
-      {id:"_T7AE2KEaJY", titulo:"Integrales por partes · Ejercicio 1"},
-      {id:"VSlbr4IM9Co", titulo:"Integración por sustitución y partes · Ej. 6"},
-      {id:"4u2vi0ZhCng", titulo:"Integrales por partes y sustitución trigonométrica"},
-    ]
-  },
-  {
-    n:"03",
-    titulo:"Integral por cambio de variable",
-    resumen:"También llamado método de sustitución: simplifica la integral con una nueva variable u.",
-    concepto:"Consiste en identificar una parte del integrando como una nueva variable u = g(x), de modo que du = g'(x)dx aparezca (o pueda hacerse aparecer) en la integral. Esto transforma una integral complicada en una integral básica en términos de u, que luego se devuelve a la variable original.",
-    formula:"Sea u = g(x), du = g'(x) dx\n\n∫ f(g(x))·g'(x) dx = ∫ f(u) du",
-    nota:"Es el método más usado como primer intento antes de recurrir a partes o sustitución trigonométrica.",
-    ejercicio:{
-      enun:"Resolver ∫ 2x·(x²+1)⁴ dx mediante cambio de variable.",
-      pasos:[
-        "Se identifica u = x² + 1, porque su derivada aparece en el integrando.",
-        "Se deriva: du = 2x dx (¡coincide exactamente con lo que sobra en la integral!).",
-        "Se sustituye: ∫2x(x²+1)⁴ dx = ∫u⁴ du",
-        "Se integra en términos de u: ∫u⁴ du = u⁵/5 + C",
-        "Se regresa a la variable original reemplazando u = x²+1.",
-      ],
-      resultado:"∫ 2x·(x²+1)⁴ dx = (x²+1)⁵ / 5 + C"
-    },
-    videos:[
-      {id:"rWrbdwlPEkE", titulo:"Integrales por sustitución · Ej. 29"},
-      {id:"5Ej7FPMxmPA", titulo:"Integrales por cambio de variable · Video 1"},
-      {id:"KooaSuEAsf4", titulo:"Integración por sustitución · Ejercicio 16"},
-    ]
-  },
-  {
-    n:"04",
-    titulo:"Integrales trigonométricas (tipo 1, 2, 3, 4)",
-    resumen:"Potencias y productos de funciones trigonométricas: seno, coseno, tangente y secante.",
-    concepto:"Se clasifican según la combinación de funciones y la paridad de sus exponentes. Tipo 1: potencias impares de seno o coseno (se separa un factor y se usa la identidad pitagórica). Tipo 2: potencias pares de seno y coseno (se usan identidades de ángulo doble). Tipo 3: potencias de tangente y secante. Tipo 4: productos de seno y coseno con ángulos distintos (se usan fórmulas de producto a suma).",
-    formula:"sin²x + cos²x = 1\ntan²x + 1 = sec²x\nsin²x = (1−cos2x)/2\ncos²x = (1+cos2x)/2",
-    nota:"Identificar primero si las potencias son pares o impares determina qué identidad conviene aplicar.",
-    ejercicio:{
-      enun:"Resolver ∫ sin³x dx (potencia impar de seno).",
-      pasos:[
-        "Como la potencia es impar, se separa un factor de seno: sin³x = sin²x · sinx.",
-        "Se usa la identidad pitagórica: sin²x = 1 − cos²x.",
-        "La integral queda: ∫(1 − cos²x)·sinx dx",
-        "Se sustituye u = cosx, du = −sinx dx, entonces sinx dx = −du.",
-        "∫(1−u²)(−du) = −∫(1−u²)du = −u + u³/3 + C",
-        "Se regresa a la variable original reemplazando u = cosx.",
-      ],
-      resultado:"∫ sin³x dx = −cosx + cos³x/3 + C"
-    },
-    videos:[
-      {id:"aV3RC0Eh-SQ", titulo:"Integrales trigonométricas · Ej. 5"},
-      {id:"Q9ru6AuREaw", titulo:"Integrales trigonométricas · Ej. 3 (sen²x)"},
-      {id:"YnNqR370myg", titulo:"Integración de potencias trigonométricas · Ejemplo 1"},
-    ]
-  },
-  {
-    n:"05",
-    titulo:"Integral por sustitución trigonométrica",
-    resumen:"Para integrandos con raíces del tipo √(a²−x²), √(a²+x²) o √(x²−a²).",
-    concepto:"Cuando aparece una raíz cuadrada de una suma o diferencia de cuadrados, se sustituye x por una función trigonométrica (seno, tangente o secante) para eliminar la raíz usando identidades pitagóricas, formando un triángulo de referencia para regresar a la variable original al final.",
-    formula:"√(a²−x²)  →  x = a·sen θ\n√(a²+x²)  →  x = a·tan θ\n√(x²−a²)  →  x = a·sec θ",
-    nota:"Al final se usa un triángulo rectángulo para expresar θ de nuevo en función de x.",
-    ejercicio:{
-      enun:"Resolver ∫ dx / √(4 − x²) mediante sustitución trigonométrica.",
-      pasos:[
-        "La raíz tiene la forma √(a²−x²) con a = 2, así que se sustituye x = 2·senθ.",
-        "Entonces dx = 2·cosθ dθ y √(4−x²) = √(4−4sen²θ) = 2·cosθ.",
-        "Se sustituye en la integral: ∫ (2·cosθ dθ) / (2·cosθ) = ∫ dθ",
-        "Se integra directamente: ∫dθ = θ + C",
-        "Se regresa a x usando θ = arcsen(x/2).",
-      ],
-      resultado:"∫ dx / √(4−x²) = arcsen(x/2) + C"
-    },
-    videos:[
-      {id:"jjqvOjQFnhI", titulo:"Sustitución trigonométrica · Ej. 1"},
-      {id:"qzG4_jtwcXU", titulo:"Sustitución trigonométrica · Ej. 5"},
-      {id:"XvMN-DnTjIY", titulo:"Sustitución trigonométrica · Ejercicio 9"},
-    ]
-  },
-];
+// El contenido de los temas ya viene escrito directamente en el HTML (arriba),
+// así que aquí solo activamos el clic para abrir/cerrar cada tarjeta.
+// Esto hace que la página funcione aunque la plataforma donde la pegues
+// bloquee o retrase la ejecución de JavaScript al cargar.
 
-const segundoParcial = [
-  {
-    n:"01",
-    titulo:"Integración de funciones racionales (fracciones parciales)",
-    resumen:"Caso I: factores lineales no repetidos · Caso II: factores lineales repetidos.",
-    concepto:"Cuando el integrando es una fracción de polinomios, se descompone en una suma de fracciones más simples antes de integrar. Caso I: si el denominador se factoriza en factores lineales distintos, a cada uno le corresponde una fracción con una constante en el numerador. Caso II: si un factor lineal se repite k veces, le corresponden k fracciones, una por cada potencia del factor de 1 hasta k.",
-    formula:"Caso I:  P(x)/[(x−a)(x−b)] = A/(x−a) + B/(x−b)\n\nCaso II: P(x)/(x−a)^k = A₁/(x−a) + A₂/(x−a)² + … + Aₖ/(x−a)^k",
-    nota:"El grado del numerador debe ser menor que el del denominador; si no, primero se hace división de polinomios.",
-    ejercicio:{
-      enun:"Resolver ∫ (3x+5) / [(x−1)(x+2)] dx (Caso I: factores lineales no repetidos).",
-      pasos:[
-        "Se plantea la descomposición: (3x+5)/[(x−1)(x+2)] = A/(x−1) + B/(x+2)",
-        "Se multiplica ambos lados por (x−1)(x+2): 3x+5 = A(x+2) + B(x−1)",
-        "Se evalúa en x = 1: 8 = A(3) → A = 8/3",
-        "Se evalúa en x = −2: −1 = B(−3) → B = 1/3",
-        "Se integra cada fracción por separado: ∫A/(x−1)dx + ∫B/(x+2)dx",
-      ],
-      resultado:"∫(3x+5)/[(x−1)(x+2)] dx = (8/3)ln|x−1| + (1/3)ln|x+2| + C"
-    },
-    videos:[
-      {id:"YofhFP7RcmE", titulo:"Fracciones parciales · Caso I (factores no repetidos)"},
-      {id:"Lhb4kRTbh3w", titulo:"Integración por fracciones parciales · Caso 1, Ej. 1"},
-      {id:"FevMzeykpaY", titulo:"Caso II: Factores lineales repetidos"},
-      {id:"jTxpr8RFQKo", titulo:"Fracciones parciales · Ejemplo 11, factores repetidos"},
-    ]
-  },
-  {
-    n:"02",
-    titulo:"Área bajo la curva",
-    resumen:"Sus fórmulas, gráficas y variantes: área entre el eje X y una función, y área entre dos curvas.",
-    concepto:"El área de la región R limitada por la gráfica de f(x), el eje X y las rectas x=a, x=b se calcula con la integral definida de f en [a,b]. Cuando f(x) es negativa en parte del intervalo, se usa el valor absoluto para que el área no salga negativa. Si la región está limitada por dos curvas (RL: región limitada), se integra la diferencia entre la curva superior y la inferior.",
-    formula:"Área bajo la curva:\nA = ∫[a→b] |f(x)| dx\n\nÁrea entre dos curvas (f arriba de g):\nA = ∫[a→b] [f(x) − g(x)] dx",
-    nota:"Siempre conviene graficar la región y hallar los puntos de intersección antes de plantear la integral.",
-    grafica: `<svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg">
-      <line x1="40" y1="250" x2="410" y2="250" stroke="#0A2E5C" stroke-width="1.5"/>
-      <line x1="60" y1="270" x2="60" y2="20" stroke="#0A2E5C" stroke-width="1.5"/>
-      <path d="M60,250 C100,246 160,215 200,132 L200,250 Z" fill="#5FB3F0" fill-opacity="0.35" stroke="none"/>
-      <path d="M60,250 C100,246 160,215 260,60" fill="none" stroke="#0F4C9C" stroke-width="2.5"/>
-      <line x1="200" y1="250" x2="200" y2="132" stroke-dasharray="4 4" stroke="#0A2E5C" stroke-width="1"/>
-      <text x="55" y="270" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">a</text>
-      <text x="196" y="270" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">b</text>
-      <text x="270" y="70" font-family="JetBrains Mono, monospace" font-size="13" fill="#0F4C9C">y = f(x)</text>
-      <text x="105" y="220" font-family="JetBrains Mono, monospace" font-size="13" fill="#0A2E5C">Área = ∫[a→b] f(x)dx</text>
-      <text x="415" y="255" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">x</text>
-      <text x="45" y="25" font-family="JetBrains Mono, monospace" font-size="12" fill="#0A2E5C">y</text>
-    </svg>`,
-    ejercicio:{
-      enun:"Calcular el área bajo la curva f(x) = x² entre x = 0 y x = 2.",
-      pasos:[
-        "Se plantea la integral definida: A = ∫[0→2] x² dx",
-        "Se halla la antiderivada: ∫x² dx = x³/3",
-        "Se evalúa en los límites: A = [x³/3] desde 0 hasta 2",
-        "A = (2³/3) − (0³/3) = 8/3 − 0",
-      ],
-      resultado:"Área = 8/3 unidades² ≈ 2.67 u²"
-    },
-    videos:[
-      {id:"V7WnsXYJZaM", titulo:"Área bajo una curva · Ejercicio 1"},
-      {id:"zOifhTHi3qk", titulo:"Área bajo una curva · Ej. 3 (con calculadora)"},
-      {id:"0hs3v3lilT8", titulo:"Área entre curvas · Ej. 5"},
-    ]
-  },
-  {
-    n:"03",
-    titulo:"Volúmenes · Sólidos de revolución",
-    resumen:"Sus fórmulas y gráficas: método de discos y método de arandelas.",
-    concepto:"Al girar una región plana alrededor de un eje se genera un sólido de revolución. Si la región toca el eje de giro se usa el método de discos (secciones circulares macizas); si hay un hueco entre la región y el eje se usa el método de arandelas (secciones en forma de anillo), restando el volumen del radio interior al del radio exterior.",
-    formula:"Método de discos (eje X):\nV = π ∫[a→b] [f(x)]² dx\n\nMétodo de arandelas:\nV = π ∫[a→b] [R(x)² − r(x)²] dx",
-    nota:"R(x) es el radio exterior (curva más lejana al eje) y r(x) el radio interior (curva más cercana al eje).",
-    grafica: `<svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg">
-      <line x1="20" y1="150" x2="200" y2="150" stroke="#0A2E5C" stroke-width="1.2"/>
-      <line x1="35" y1="260" x2="35" y2="40" stroke="#0A2E5C" stroke-width="1.2"/>
-      <path d="M35,150 C60,150 100,120 170,70 L170,150 Z" fill="#5FB3F0" fill-opacity="0.35" stroke="none"/>
-      <path d="M35,150 C60,150 100,120 170,70" fill="none" stroke="#0F4C9C" stroke-width="2.5"/>
-      <line x1="170" y1="150" x2="170" y2="70" stroke-dasharray="3 3" stroke="#0A2E5C" stroke-width="1"/>
-      <text x="10" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">y</text>
-      <text x="195" y="165" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">x</text>
-      <text x="60" y="135" font-family="JetBrains Mono, monospace" font-size="11" fill="#0F4C9C">y = f(x)</text>
-      <text x="60" y="200" font-family="Inter, sans-serif" font-size="11" fill="#4A6178">Región plana</text>
-      <line x1="230" y1="150" x2="420" y2="150" stroke="#0A2E5C" stroke-width="1" stroke-dasharray="4 4"/>
-      <path d="M240,150 Q240,90 260,90 Q330,80 390,110 Q400,150 390,150" fill="none" stroke="none"/>
-      <ellipse cx="248" cy="150" rx="8" ry="42" fill="#5FB3F0" fill-opacity="0.25" stroke="#0F4C9C" stroke-width="1.2"/>
-      <path d="M248,108 C300,80 360,90 392,118" fill="none" stroke="#0F4C9C" stroke-width="2.2"/>
-      <path d="M248,192 C300,215 360,205 392,178" fill="none" stroke="#0F4C9C" stroke-width="2.2"/>
-      <ellipse cx="320" cy="150" rx="7" ry="66" fill="#5FB3F0" fill-opacity="0.15" stroke="#1E7FD9" stroke-width="1" stroke-dasharray="3 3"/>
-      <ellipse cx="392" cy="148" rx="10" ry="30" fill="#5FB3F0" fill-opacity="0.3" stroke="#0F4C9C" stroke-width="1.2"/>
-      <text x="280" y="230" font-family="Inter, sans-serif" font-size="11" fill="#4A6178">Sólido de revolución</text>
-      <text x="290" y="248" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">(gira alrededor del eje X)</text>
-    </svg>`,
-    ejercicio:{
-      enun:"La región bajo la curva y = √x, entre x = 0 y x = 4, gira alrededor del eje X. Calcular el volumen del sólido generado (método de discos).",
-      pasos:[
-        "Se identifica el radio del disco: R(x) = f(x) = √x",
-        "Se plantea la fórmula del método de discos: V = π ∫[0→4] [√x]² dx",
-        "Se simplifica el integrando: [√x]² = x, entonces V = π ∫[0→4] x dx",
-        "Se integra: ∫x dx = x²/2",
-        "Se evalúa entre 0 y 4: V = π[(4²/2) − (0²/2)] = π(8 − 0)",
-      ],
-      resultado:"Volumen = 8π unidades³ ≈ 25.13 u³"
-    },
-    videos:[
-      {id:"BgJhiXhuFhk", titulo:"Volumen de sólido de revolución (Discos) · Ej. 1"},
-      {id:"QQDrbzHQfO4", titulo:"Volumen de sólido de revolución (Arandelas) · Ej. 6"},
-      {id:"QyIWrbnTVM4", titulo:"Volumen de sólidos de revolución #1"},
-    ]
-  },
-  {
-    n:"04",
-    titulo:"Longitud de curva",
-    resumen:"Sus variantes y fórmulas: forma explícita y forma paramétrica.",
-    concepto:"La longitud de arco de una curva se obtiene sumando infinitos segmentos infinitesimales sobre la curva. Si la curva está dada como y=f(x), se usa la derivada dy/dx dentro de la fórmula. Si está dada en forma paramétrica x(t), y(t), se usan las derivadas respecto al parámetro t.",
-    formula:"Forma explícita:\nL = ∫[a→b] √(1 + (dy/dx)²) dx\n\nForma paramétrica:\nL = ∫[a→b] √((dx/dt)² + (dy/dt)²) dt",
-    nota:"En coordenadas polares se usa una fórmula análoga con r(θ) y dr/dθ.",
-    ejercicio:{
-      enun:"Calcular la longitud de la curva f(x) = (2/3)x^(3/2) entre x = 0 y x = 3.",
-      pasos:[
-        "Se deriva la función: dy/dx = x^(1/2)",
-        "Se eleva al cuadrado: (dy/dx)² = x",
-        "Se sustituye en la fórmula: L = ∫[0→3] √(1 + x) dx",
-        "Se integra usando u = 1+x, du = dx: ∫√u du = (2/3)u^(3/2)",
-        "Se evalúa entre los límites: L = (2/3)[(1+x)^(3/2)] desde 0 hasta 3",
-        "L = (2/3)[(4)^(3/2) − (1)^(3/2)] = (2/3)[8 − 1]",
-      ],
-      resultado:"Longitud = 14/3 unidades ≈ 4.67 u"
-    },
-    videos:[
-      {id:"6pxVMhl73SY", titulo:"Longitud de arco de una ecuación paramétrica · Ej. 1"},
-      {id:"X46oG34baWs", titulo:"Longitud de arco paramétrica · Ej. 3"},
-      {id:"kZdgeJaHhPs", titulo:"Longitud de arco con ecuaciones paramétricas · Introducción"},
-    ]
-  },
-  {
-    n:"05",
-    titulo:"Cinemática",
-    resumen:"Posición, velocidad y aceleración obtenidas mediante integración.",
-    concepto:"En cinemática, la velocidad es la antiderivada de la aceleración y la posición es la antiderivada de la velocidad. A partir de la función de aceleración a(t) y las condiciones iniciales (posición y velocidad en t=0), se puede reconstruir por completo el movimiento de una partícula usando integrales definidas.",
-    formula:"v(t) = v₀ + ∫[0→t] a(τ) dτ\n\nx(t) = x₀ + ∫[0→t] v(τ) dτ",
-    nota:"Las condiciones iniciales x₀ y v₀ son indispensables para determinar las constantes de integración.",
-    ejercicio:{
-      enun:"Una partícula tiene aceleración a(t) = 6t. Si v(0) = 2 y x(0) = 0, hallar v(t), x(t) y sus valores en t = 2.",
-      pasos:[
-        "Se integra la aceleración para obtener la velocidad: v(t) = ∫6t dt = 3t² + C₁",
-        "Se usa la condición inicial v(0)=2: 3(0)²+C₁=2 → C₁=2, entonces v(t) = 3t² + 2",
-        "Se integra la velocidad para obtener la posición: x(t) = ∫(3t²+2) dt = t³ + 2t + C₂",
-        "Se usa la condición inicial x(0)=0: (0)³+2(0)+C₂=0 → C₂=0, entonces x(t) = t³ + 2t",
-        "Se evalúan en t=2: v(2) = 3(4)+2 = 14  ·  x(2) = 8+4 = 12",
-      ],
-      resultado:"v(t) = 3t² + 2  →  v(2) = 14   |   x(t) = t³ + 2t  →  x(2) = 12"
-    },
-    videos:[
-      {id:"ltRo5CswLRI", titulo:"Aplicación de integrales en cinemática · Aceleración variable"},
-      {id:"88INt4uSutk", titulo:"Velocidad y posición a partir de la aceleración"},
-      {id:"eu8htnVgf4k", titulo:"Posición y velocidad por integración"},
-    ]
-  },
-];
-
-// ---------- RENDER ----------
-function thumb(id){ return https://i.ytimg.com/vi/${id}/hqdefault.jpg; }
-
-function renderTopics(list, containerId, prefix){
-  const container = document.getElementById(containerId);
-  list.forEach((t, idx) => {
-    const cardId = ${prefix}-card-${idx};
-    const card = document.createElement('div');
-    card.className = 'topic-card';
-    card.id = cardId;
-    card.innerHTML = `
-      <span class="num">Tema ${t.n}</span>
-      <div class="toggle">+</div>
-      <h4>${t.titulo}</h4>
-      <p>${t.resumen}</p>
-    `;
-    card.addEventListener('click', () => toggleCard(cardId));
-    container.appendChild(card);
-
-    const detail = document.createElement('div');
-    detail.className = 'topic-detail';
-    detail.id = ${cardId}-detail;
-
-    const videosHtml = t.videos.map(v => `
-      <a class="video-card" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">
-        <div class="video-thumb">
-          <img src="${thumb(v.id)}" alt="${v.titulo}" loading="lazy">
-          <div class="play"><span>▶️</span></div>
-        </div>
-        <div class="video-info">
-          <div class="canal" data-vid="${v.id}">Cargando canal…</div>
-          <div class="titulo">${v.titulo}</div>
-        </div>
-      </a>
-    `).join('');
-
-    const graficaHtml = t.grafica ? `
-      <h5>Gráfica</h5>
-      <div class="graph-box">
-        ${t.grafica}
-        <div class="graph-caption">Representación gráfica del tema · ${t.titulo}</div>
-      </div>
-    ` : '';
-
-    const ejercicioHtml = t.ejercicio ? `
-      <h5>Ejercicio de ejemplo</h5>
-      <div class="exercise-box">
-        <div class="exercise-head">
-          <span class="tag">Ejercicio</span>
-          <span class="enun">${t.ejercicio.enun}</span>
-        </div>
-        <div class="exercise-body">
-          ${t.ejercicio.pasos.map((p, i) => `
-            <div class="exercise-step">
-              <div class="dot">${i+1}</div>
-              <div class="txt">${p}</div>
-            </div>
-          `).join('')}
-          <div class="exercise-result">✔️ ${t.ejercicio.resultado}</div>
-        </div>
-      </div>
-    ` : '';
-
-    detail.innerHTML = `
-      <div class="detail-inner">
-        <h5>Concepto</h5>
-        <p class="concepto">${t.concepto}</p>
-        ${graficaHtml}
-        <h5>Fórmula</h5>
-        <div class="formula-box">${t.formula}</div>
-        <p class="formula-note">${t.nota}</p>
-        ${ejercicioHtml}
-        <h5>Videos de apoyo</h5>
-        <div class="video-grid">${videosHtml}</div>
-      </div>
-    `;
-    container.appendChild(detail);
-  });
-}
-
-function toggleCard(cardId){
-  const card = document.getElementById(cardId);
+function toggleCard(card){
   const wasOpen = card.classList.contains('open');
-  // cierra todas las tarjetas del mismo contenedor
   const container = card.parentElement;
   container.querySelectorAll('.topic-card.open').forEach(c => c.classList.remove('open'));
   if(!wasOpen){
@@ -793,17 +1397,35 @@ function toggleCard(cardId){
   }
 }
 
-renderTopics(primerParcial, 'topics-p1', 'p1');
-renderTopics(segundoParcial, 'topics-p2', 'p2');
+document.querySelectorAll('.topic-card').forEach(card => {
+  card.addEventListener('click', () => toggleCard(card));
+});
 
 // ---------- CANAL REAL DE CADA VIDEO (vía oEmbed de YouTube) ----------
 // Consulta el nombre oficial del canal directamente a YouTube, sin adivinar ni inventar nombres.
+//
+// IMPORTANTE: si este archivo se abre haciendo doble clic (protocolo file://),
+// los navegadores bloquean por CORS cualquier petición hacia youtube.com, y la
+// petición ni siquiera se puede intentar de forma fiable. En ese caso NO se
+// intenta el fetch (para no ensuciar la consola con errores inútiles) y se
+// deja el texto de respaldo "Ver canal en YouTube", que ya funciona como
+// enlace útil por sí mismo. Si el archivo se sirve desde un servidor web
+// (http:// o https://, por ejemplo GitHub Pages, Netlify, o un hosting real),
+// entonces sí se intenta obtener el nombre real del canal.
+
+const esFileProtocol = location.protocol === 'file:';
 const canalCache = {};
+
 async function cargarCanalReal(vid){
   if(canalCache[vid]) return canalCache[vid];
   try{
-    const res = await fetch(https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${vid}&format=json);
-    if(!res.ok) throw new Error('no ok');
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+    const res = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${vid}&format=json`, {
+      signal: controller.signal
+    });
+    clearTimeout(timeoutId);
+    if(!res.ok) throw new Error('respuesta no OK');
     const data = await res.json();
     canalCache[vid] = data.author_name || null;
     return canalCache[vid];
@@ -812,11 +1434,16 @@ async function cargarCanalReal(vid){
   }
 }
 
-document.querySelectorAll('.canal[data-vid]').forEach(async (el) => {
-  const vid = el.getAttribute('data-vid');
-  const nombre = await cargarCanalReal(vid);
-  el.textContent = nombre ? nombre : 'Ver canal en YouTube';
-});
+if(!esFileProtocol){
+  document.querySelectorAll('.canal[data-vid]').forEach(async (el) => {
+    const vid = el.getAttribute('data-vid');
+    const nombre = await cargarCanalReal(vid);
+    if(nombre) el.textContent = nombre;
+    // Si falla, se deja el texto de respaldo "Ver canal en YouTube" tal cual está en el HTML.
+  });
+}
+// Si es file://, no se hace nada: el texto de respaldo ya está escrito en el HTML
+// desde el principio, así que la página se ve correcta igualmente.
 </script>
 
 </body>
