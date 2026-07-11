@@ -596,194 +596,175 @@ const segundoParcial = [
   },
   {
     n:"03",
-    titulo:"Volúmenes · Sólidos de revolución",
-    resumen:"Sus fórmulas y gráficas: método de discos y método de arandelas.",
-    concepto:"Al girar una región plana alrededor de un eje se genera un sólido de revolución. Si la región toca el eje de giro se usa el método de discos (secciones circulares macizas); si hay un hueco entre la región y el eje se usa el método de arandelas (secciones en forma de anillo), restando el volumen del radio interior al del radio exterior.",
-    formula:"Método de discos (eje X):\nV = π ∫[a→b] [f(x)]² dx\n\nMétodo de arandelas:\nV = π ∫[a→b] [R(x)² − r(x)²] dx",
-    nota:"R(x) es el radio exterior (curva más lejana al eje) y r(x) el radio interior (curva más cercana al eje).",
-    grafica: `<svg viewBox="0 0 440 300" xmlns="http://www.w3.org/2000/svg">
-      <line x1="20" y1="150" x2="200" y2="150" stroke="#0A2E5C" stroke-width="1.2"/>
-      <line x1="35" y1="260" x2="35" y2="40" stroke="#0A2E5C" stroke-width="1.2"/>
-      <path d="M35,150 C60,150 100,120 170,70 L170,150 Z" fill="#5FB3F0" fill-opacity="0.35" stroke="none"/>
-      <path d="M35,150 C60,150 100,120 170,70" fill="none" stroke="#0F4C9C" stroke-width="2.5"/>
-      <line x1="170" y1="150" x2="170" y2="70" stroke-dasharray="3 3" stroke="#0A2E5C" stroke-width="1"/>
-      <text x="10" y="45" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">y</text>
-      <text x="195" y="165" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">x</text>
-      <text x="60" y="135" font-family="JetBrains Mono, monospace" font-size="11" fill="#0F4C9C">y = f(x)</text>
-      <text x="60" y="200" font-family="Inter, sans-serif" font-size="11" fill="#4A6178">Región plana</text>
-      <line x1="230" y1="150" x2="420" y2="150" stroke="#0A2E5C" stroke-width="1" stroke-dasharray="4 4"/>
-      <path d="M240,150 Q240,90 260,90 Q330,80 390,110 Q400,150 390,150" fill="none" stroke="none"/>
-      <ellipse cx="248" cy="150" rx="8" ry="42" fill="#5FB3F0" fill-opacity="0.25" stroke="#0F4C9C" stroke-width="1.2"/>
-      <path d="M248,108 C300,80 360,90 392,118" fill="none" stroke="#0F4C9C" stroke-width="2.2"/>
-      <path d="M248,192 C300,215 360,205 392,178" fill="none" stroke="#0F4C9C" stroke-width="2.2"/>
-      <ellipse cx="320" cy="150" rx="7" ry="66" fill="#5FB3F0" fill-opacity="0.15" stroke="#1E7FD9" stroke-width="1" stroke-dasharray="3 3"/>
-      <ellipse cx="392" cy="148" rx="10" ry="30" fill="#5FB3F0" fill-opacity="0.3" stroke="#0F4C9C" stroke-width="1.2"/>
-      <text x="280" y="230" font-family="Inter, sans-serif" font-size="11" fill="#4A6178">Sólido de revolución</text>
-      <text x="290" y="248" font-family="JetBrains Mono, monospace" font-size="11" fill="#0A2E5C">(gira alrededor del eje X)</text>
-    </svg>`,
-    ejercicio:{
-      enun:"La región bajo la curva y = √x, entre x = 0 y x = 4, gira alrededor del eje X. Calcular el volumen del sólido generado (método de discos).",
-      pasos:[
-        "Se identifica el radio del disco: R(x) = f(x) = √x",
-        "Se plantea la fórmula del método de discos: V = π ∫[0→4] [√x]² dx",
-        "Se simplifica el integrando: [√x]² = x, entonces V = π ∫[0→4] x dx",
-        "Se integra: ∫x dx = x²/2",
-        "Se evalúa entre 0 y 4: V = π[(4²/2) − (0²/2)] = π(8 − 0)",
+    titulo: "Volumen de sólidos de revolución",
+    resumen: "El cálculo de volúmenes al girar una región plana: método de discos y de arandelas.",
+    concepto: "Un sólido de revolución se genera al rotar una región plana alrededor de un eje. Si la región está pegada al eje de giro y no hay espacios vacíos, se usa el método de discos, donde el sólido se corta en cilindros de espesor infinitesimal dx. Si la región está separada del eje por otra función, se genera un hueco central y se usa el método de arandelas (o anillos), restando el volumen del radio interno al del radio externo.",
+    formula: "Método de discos (eje X):\nV = π · ∫[a→b] [f(x)]² dx\n\nMétodo de arandelas (eje X):\nV = π · ∫[a→b] ([R(x)]² − [r(x)]²) dx",
+    nota: "R(x) representa el radio externo (función más alejada del eje de giro) y r(x) el radio interno (función más cercana).",
+    ejercicio: {
+      enun: "Calcular el volumen del sólido generado al girar alrededor del eje X la región limitada por f(x) = √x, el eje X y entre x = 0 y x = 4.",
+      pasos: [
+        "Se identifica que la región está pegada al eje X, por lo que se aplica el método de discos.",
+        "Se plantea la integral: V = π · ∫[0→4] (√x)² dx",
+        "Se simplifica el integrando: (√x)² = x, quedando V = π · ∫[0→4] x dx",
+        "Se integra la función: ∫x dx = x²/2",
+        "Se evalúa en los límites: V = π · [x²/2] desde 0 hasta 4",
+        "V = π · (4²/2 − 0²/2) = π · (16/2) = 8π",
       ],
-      resultado:"Volumen = 8π unidades³ ≈ 25.13 u³"
+      resultado: "Volumen = 8π unidades³ ≈ 25.13 u³"
     },
-    videos:[
-      {id:"BgJhiXhuFhk", canal:"YouTube", titulo:"Volumen de sólido de revolución (Discos) · Ej. 1"},
-      {id:"QQDrbzHQfO4", canal:"YouTube", titulo:"Volumen de sólido de revolución (Arandelas) · Ej. 6"},
-      {id:"QyIWrbnTVM4", canal:"YouTube", titulo:"Volumen de sólidos de revolución #1"},
+    videos: [
+      { id: "R_aq7daY08w", canal: "julioprofe", name: "VOLUMEN DE UN SÓLIDO DE REVOLUCIÓN - Método de los discos - Ejercicio 1" },
+      { id: "_C6b_Xm1E7k", canal: "julioprofe", name: "SÓLIDOS DE REVOLUCIÓN - Método de las arandelas - Ejercicio 1" },
+      { id: "BgJhiXhuFhk", canal: "YouTube", name: "Volumen de un sólido de revolución método de discos y arandelas" }
     ]
   },
   {
-    n:"04",
-    titulo:"Longitud de curva",
-    resumen:"Sus variantes y fórmulas: forma explícita y forma paramétrica.",
-    concepto:"La longitud de arco de una curva se obtiene sumando infinitos segmentos infinitesimales sobre la curva. Si la curva está dada como y=f(x), se usa la derivada dy/dx dentro de la fórmula. Si está dada en forma paramétrica x(t), y(t), se usan las derivadas respecto al parámetro t.",
-    formula:"Forma explícita:\nL = ∫[a→b] √(1 + (dy/dx)²) dx\n\nForma paramétrica:\nL = ∫[a→b] √((dx/dt)² + (dy/dt)²) dt",
-    nota:"En coordenadas polares se usa una fórmula análoga con r(θ) y dr/dθ.",
-    ejercicio:{
-      enun:"Calcular la longitud de la curva f(x) = (2/3)x^(3/2) entre x = 0 y x = 3.",
-      pasos:[
-        "Se deriva la función: dy/dx = x^(1/2)",
-        "Se eleva al cuadrado: (dy/dx)² = x",
-        "Se sustituye en la fórmula: L = ∫[0→3] √(1 + x) dx",
-        "Se integra usando u = 1+x, du = dx: ∫√u du = (2/3)u^(3/2)",
-        "Se evalúa entre los límites: L = (2/3)[(1+x)^(3/2)] desde 0 hasta 3",
-        "L = (2/3)[(4)^(3/2) − (1)^(3/2)] = (2/3)[8 − 1]",
+    n: "04",
+    titulo: "Longitud de arco",
+    resumen: "Determinación de la distancia exacta recorrida a lo largo de una sección de curva continua.",
+    concepto: "Permite calcular la longitud exacta de un segmento de curva suave y continua f(x) entre dos puntos x=a y x=b. La fórmula se deduce de aproximar la curva mediante pequeños segmentos de líneas rectas usando el teorema de Pitágoras, lo que introduce un término con la derivada de la función elevada al cuadrado dentro de una raíz cuadrada.",
+    formula: "L = ∫[a→b] √(1 + [f'(x)]²) dx",
+    nota: "El integrando resultante suele requerir identidades trigonométricas o sustituciones complejas para resolverse analíticamente.",
+    ejercicio: {
+      enun: "Plantear la integral para la longitud de arco de la curva f(x) = x^(3/2) en el intervalo [0, 4].",
+      pasos: [
+        "Se calcula primero la derivada de la función: f'(x) = (3/2)x^(1/2) = (3/2)√x.",
+        "Se eleva la derivada al cuadrado: [f'(x)]² = ((3/2)√x)² = (9/4)x.",
+        "Se sustituye en la fórmula de longitud de arco: L = ∫[0→4] √(1 + (9/4)x) dx.",
+        "Se puede resolver mediante un cambio de variable básico u = 1 + (9/4)x.",
       ],
-      resultado:"Longitud = 14/3 unidades ≈ 4.67 u"
+      resultado: "L = (8/27) * (10^(3/2) − 1) unidades ≈ 9.07 u"
     },
-    videos:[
-      {id:"6pxVMhl73SY", canal:"YouTube", titulo:"Longitud de arco de una ecuación paramétrica · Ej. 1"},
-      {id:"X46oG34baWs", canal:"YouTube", titulo:"Longitud de arco paramétrica · Ej. 3"},
-      {id:"kZdgeJaHhPs", canal:"YouTube", titulo:"Longitud de arco con ecuaciones paramétricas · Introducción"},
+    videos: [
+      { id: "3HqbyXw6EAs", canal: "julioprofe", name: "LONGITUD DE UNA CURVA - Ejercicio 1" },
+      { id: "A-eEepHqCgE", canal: "MateFacil", name: "Longitud de arco de una curva por integrales (Ejemplo 1)" }
     ]
   },
   {
-    n:"05",
-    titulo:"Cinemática",
-    resumen:"Posición, velocidad y aceleración obtenidas mediante integración.",
-    concepto:"En cinemática, la velocidad es la antiderivada de la aceleración y la posición es la antiderivada de la velocidad. A partir de la función de aceleración a(t) y las condiciones iniciales (posición y velocidad en t=0), se puede reconstruir por completo el movimiento de una partícula usando integrales definidas.",
-    formula:"v(t) = v₀ + ∫[0→t] a(τ) dτ\n\nx(t) = x₀ + ∫[0→t] v(τ) dτ",
-    nota:"Las condiciones iniciales x₀ y v₀ son indispensables para determinar las constantes de integración.",
-    ejercicio:{
-      enun:"Una partícula tiene aceleración a(t) = 6t. Si v(0) = 2 y x(0) = 0, hallar v(t), x(t) y sus valores en t = 2.",
-      pasos:[
-        "Se integra la aceleración para obtener la velocidad: v(t) = ∫6t dt = 3t² + C₁",
-        "Se usa la condición inicial v(0)=2: 3(0)²+C₁=2 → C₁=2, entonces v(t) = 3t² + 2",
-        "Se integra la velocidad para obtener la posición: x(t) = ∫(3t²+2) dt = t³ + 2t + C₂",
-        "Se usa la condición inicial x(0)=0: (0)³+2(0)+C₂=0 → C₂=0, entonces x(t) = t³ + 2t",
-        "Se evalúan en t=2: v(2) = 3(4)+2 = 14  ·  x(2) = 8+4 = 12",
+    n: "05",
+    titulo: "Aplicaciones a la física (Cinemática)",
+    resumen: "Modelado del movimiento lineal: cálculo de la posición y velocidad mediante antiderivadas.",
+    concepto: "En la física, la integración reconstruye variables dinámicas a partir de sus tasas de cambio. Si se conoce la función de aceleración a(t), integrarla respecto al tiempo devuelve la velocidad v(t). De la misma forma, al integrar la función de velocidad v(t) se obtiene la posición exacta s(t) de la partícula. Las condiciones iniciales permiten calcular con precisión los valores de las constantes de integración.",
+    formula: "v(t) = ∫ a(t) dt + C₁\n\ns(t) = ∫ v(t) dt + C₂",
+    nota: "La constante C₁ corresponde comúnmente a la velocidad inicial v(0), y C₂ a la posición inicial s(0).",
+    ejercicio: {
+      enun: "Una partícula se mueve con aceleración constante a(t) = 4 m/s². Si arranca del reposo (v(0)=0) desde el origen (s(0)=0), hallar su posición en t = 3 segundos.",
+      pasos: [
+        "Se integra la aceleración para hallar la velocidad: v(t) = ∫4 dt = 4t + C₁.",
+        "Dado que v(0) = 0, se deduce directamente que C₁ = 0. Así, v(t) = 4t.",
+        "Se integra la velocidad para hallar la posición: s(t) = ∫4t dt = 2t² + C₂.",
+        "Dado que s(0) = 0, se deduce directamente que C₂ = 0. Así, s(t) = 2t².",
+        "Se evalúa la posición en el tiempo indicado t = 3: s(3) = 2(3)² = 2(9) = 18.",
       ],
-      resultado:"v(t) = 3t² + 2  →  v(2) = 14   |   x(t) = t³ + 2t  →  x(2) = 12"
+      resultado: "Posición s(3) = 18 metros"
     },
-    videos:[
-      {id:"ltRo5CswLRI", canal:"YouTube", titulo:"Aplicación de integrales en cinemática · Aceleración variable"},
-      {id:"88INt4uSutk", canal:"YouTube", titulo:"Velocidad y posición a partir de la aceleración"},
-      {id:"eu8htnVgf4k", canal:"Salvador FI", titulo:"Posición y velocidad por integración"},
+    videos: [
+      { id: "gq91b8kYVf8", canal: "julioprofe", name: "Aplicación de la integral en Física: Cinemática - Ejercicio 1" },
+      { id: "_E9vUksWc30", canal: "MateFacil", name: "Obtener velocidad y posición a partir de la aceleración usando integrales" }
     ]
-  },
+  }
 ];
-
-// ---------- RENDER ----------
-function thumb(id){ return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; }
-
-function renderTopics(list, containerId, prefix){
-  const container = document.getElementById(containerId);
-  list.forEach((t, idx) => {
-    const cardId = `${prefix}-card-${idx}`;
-    const card = document.createElement('div');
-    card.className = 'topic-card';
-    card.id = cardId;
-    card.innerHTML = `
-      <span class="num">Tema ${t.n}</span>
-      <div class="toggle">+</div>
-      <h4>${t.titulo}</h4>
-      <p>${t.resumen}</p>
-    `;
-    card.addEventListener('click', () => toggleCard(cardId));
-    container.appendChild(card);
-
-    const detail = document.createElement('div');
-    detail.className = 'topic-detail';
-    detail.id = `${cardId}-detail`;
-
-    const videosHtml = t.videos.map(v => `
-      <a class="video-card" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">
-        <div class="video-thumb">
-          <img src="${thumb(v.id)}" alt="${v.titulo}" loading="lazy">
-          <div class="play"><span>▶</span></div>
+// ---------- RENDERIZADO DINÁMICO DE LAS TARJETAS ----------
+function renderizarTemas(arr, contenedorId) {
+  const container = document.getElementById(contenedorId);
+  arr.forEach((topic) => {
+    let graficaHtml = '';
+    if (topic.grafica) {
+      graficaHtml = `
+        <div class="graph-box">
+          ${topic.grafica}
+          <div class="graph-caption">Representación geométrica de la aplicación</div>
         </div>
-        <div class="video-info">
-          <div class="canal">${v.canal}</div>
-          <div class="titulo">${v.titulo}</div>
-        </div>
-      </a>
-    `).join('');
+      `;
+    }
 
-    const graficaHtml = t.grafica ? `
-      <h5>Gráfica</h5>
-      <div class="graph-box">
-        ${t.grafica}
-        <div class="graph-caption">Representación gráfica del tema · ${t.titulo}</div>
-      </div>
-    ` : '';
+    let pasosHtml = '';
+    if (topic.ejercicio && topic.ejercicio.pasos) {
+      topic.ejercicio.pasos.forEach((paso, index) => {
+        pasosHtml += `
+          <div class="exercise-step">
+            <div class="dot">${index + 1}</div>
+            <div class="txt">${paso}</div>
+          </div>
+        `;
+      });
+    }
 
-    const ejercicioHtml = t.ejercicio ? `
-      <h5>Ejercicio de ejemplo</h5>
-      <div class="exercise-box">
-        <div class="exercise-head">
-          <span class="tag">Ejercicio</span>
-          <span class="enun">${t.ejercicio.enun}</span>
-        </div>
-        <div class="exercise-body">
-          ${t.ejercicio.pasos.map((p, i) => `
-            <div class="exercise-step">
-              <div class="dot">${i+1}</div>
-              <div class="txt">${p}</div>
+    let videosHtml = '';
+    if (topic.videos) {
+      topic.videos.forEach((vid) => {
+        videosHtml += `
+          <a class="video-card" href="https://www.youtube.com/watch?v=${vid.id}" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <img src="https://img.youtube.com/vi/${vid.id}/mqdefault.jpg" alt="${vid.name}" loading="lazy">
+              <div class="play"><span>▶</span></div>
             </div>
-          `).join('')}
-          <div class="exercise-result">✔ ${t.ejercicio.resultado}</div>
+            <div class="video-info">
+              <div class="canal">${vid.canal}</div>
+              <div class="titulo">${vid.name}</div>
+            </div>
+          </a>
+        `;
+      });
+    }
+
+    const htmlCard = `
+      <div class="topic-card" onclick="toggleTema(this)">
+        <div class="num">${topic.n}</div>
+        <div class="toggle">+</div>
+        <h4>${topic.titulo}</h4>
+        <p>${topic.resumen}</p>
+      </div>
+      <div class="topic-detail">
+        <div class="detail-inner">
+          <h5>Concepto clave</h5>
+          <p class="concepto">${topic.concepto}</p>
+          
+          <h5>Fórmula / Identidades</h5>
+          <div class="formula-box">${topic.formula}</div>
+          <div class="formula-note">${topic.nota}</div>
+          
+          ${graficaHtml}
+          
+          <h5>Ejercicio resuelto paso a paso</h5>
+          <div class="exercise-box">
+            <div class="exercise-head">
+              <div class="tag">Ejemplo</div>
+              <span class="enun">${topic.ejercicio ? topic.ejercicio.enun : ''}</span>
+            </div>
+            <div class="exercise-body">
+              ${pasosHtml}
+              <div class="exercise-result">Resultado final: ${topic.ejercicio ? topic.ejercicio.resultado : ''}</div>
+            </div>
+          </div>
+          
+          <h5>Videos de apoyo recomendados</h5>
+          <div class="video-grid">
+            ${videosHtml}
+          </div>
         </div>
       </div>
-    ` : '';
-
-    detail.innerHTML = `
-      <div class="detail-inner">
-        <h5>Concepto</h5>
-        <p class="concepto">${t.concepto}</p>
-        ${graficaHtml}
-        <h5>Fórmula</h5>
-        <div class="formula-box">${t.formula}</div>
-        <p class="formula-note">${t.nota}</p>
-        ${ejercicioHtml}
-        <h5>Videos de apoyo</h5>
-        <div class="video-grid">${videosHtml}</div>
-      </div>
     `;
-    container.appendChild(detail);
+    container.innerHTML += htmlCard;
   });
 }
 
-function toggleCard(cardId){
-  const card = document.getElementById(cardId);
-  const wasOpen = card.classList.contains('open');
-  // cierra todas las tarjetas del mismo contenedor
-  const container = card.parentElement;
-  container.querySelectorAll('.topic-card.open').forEach(c => c.classList.remove('open'));
-  if(!wasOpen){
-    card.classList.add('open');
-    setTimeout(() => card.scrollIntoView({behavior:'smooth', block:'nearest'}), 120);
+function toggleTema(cardElement) {
+  const isOpen = cardElement.classList.contains('open');
+  const hermanos = cardElement.parentElement.querySelectorAll('.topic-card');
+  hermanos.forEach(c => c.classList.remove('open'));
+  
+  if (!isOpen) {
+    cardElement.classList.add('open');
   }
 }
 
-renderTopics(primerParcial, 'topics-p1', 'p1');
-renderTopics(segundoParcial, 'topics-p2', 'p2');
+document.addEventListener("DOMContentLoaded", () => {
+  renderizarTemas(primerParcial, "topics-p1");
+  renderizarTemas(segundoParcial, "topics-p2");
+});
 </script>
-
 </body>
-</html> 
+</html>
+
