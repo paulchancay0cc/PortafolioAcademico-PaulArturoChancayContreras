@@ -356,11 +356,11 @@
       <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:#fff; border-color:rgba(255,255,255,0.2);">Video destacado</span>
       <h3>Volumen de sólidos de revolución</h3>
       <p>Un repaso visual de cómo una región plana, al girar alrededor de un eje, genera un sólido de revolución y cómo calcular su volumen mediante integrales.</p>
-      <a class="btn btn-primary" href="https://www.youtube.com/watch?v=BgJhiXhuFhk" target="_blank" rel="noopener">Ver en YouTube ↗</a>
+      <a class="btn btn-primary" href="https://www.youtube.com/watch?v=BgJhiXhuFhk" target="_blank" rel="noopener">Ver en YouTube ↗️</a>
     </div>
     <a class="featured-frame" href="https://www.youtube.com/watch?v=BgJhiXhuFhk" target="_blank" rel="noopener">
       <img src="https://i.ytimg.com/vi/BgJhiXhuFhk/hqdefault.jpg" alt="Volumen de sólidos de revolución" loading="lazy">
-      <div class="play"><span>▶</span></div>
+      <div class="play"><span>▶️</span></div>
     </a>
   </div>
 </section>
@@ -382,11 +382,11 @@
         <span class="eyebrow" style="background:rgba(255,255,255,0.12); color:#fff; border-color:rgba(255,255,255,0.2);">Introducción</span>
         <h3>¿Qué es el Cálculo Integral?</h3>
         <p>Un repaso de dónde surge el concepto de integral, su relación con el área bajo la curva y por qué es la base de toda la materia.</p>
-        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=d7Y9Om4KCUM" target="_blank" rel="noopener">Ver en YouTube ↗</a>
+        <a class="btn btn-primary" href="https://www.youtube.com/watch?v=d7Y9Om4KCUM" target="_blank" rel="noopener">Ver en YouTube ↗️</a>
       </div>
       <a class="featured-frame" href="https://www.youtube.com/watch?v=d7Y9Om4KCUM" target="_blank" rel="noopener">
         <img src="https://i.ytimg.com/vi/d7Y9Om4KCUM/hqdefault.jpg" alt="Qué es el cálculo integral" loading="lazy">
-        <div class="play"><span>▶</span></div>
+        <div class="play"><span>▶️</span></div>
       </a>
     </div>
 
@@ -702,12 +702,12 @@ const segundoParcial = [
 ];
 
 // ---------- RENDER ----------
-function thumb(id){ return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; }
+function thumb(id){ return https://i.ytimg.com/vi/${id}/hqdefault.jpg; }
 
 function renderTopics(list, containerId, prefix){
   const container = document.getElementById(containerId);
   list.forEach((t, idx) => {
-    const cardId = `${prefix}-card-${idx}`;
+    const cardId = ${prefix}-card-${idx};
     const card = document.createElement('div');
     card.className = 'topic-card';
     card.id = cardId;
@@ -722,13 +722,13 @@ function renderTopics(list, containerId, prefix){
 
     const detail = document.createElement('div');
     detail.className = 'topic-detail';
-    detail.id = `${cardId}-detail`;
+    detail.id = ${cardId}-detail;
 
     const videosHtml = t.videos.map(v => `
       <a class="video-card" href="https://www.youtube.com/watch?v=${v.id}" target="_blank" rel="noopener">
         <div class="video-thumb">
           <img src="${thumb(v.id)}" alt="${v.titulo}" loading="lazy">
-          <div class="play"><span>▶</span></div>
+          <div class="play"><span>▶️</span></div>
         </div>
         <div class="video-info">
           <div class="canal" data-vid="${v.id}">Cargando canal…</div>
@@ -759,7 +759,7 @@ function renderTopics(list, containerId, prefix){
               <div class="txt">${p}</div>
             </div>
           `).join('')}
-          <div class="exercise-result">✔ ${t.ejercicio.resultado}</div>
+          <div class="exercise-result">✔️ ${t.ejercicio.resultado}</div>
         </div>
       </div>
     ` : '';
@@ -796,13 +796,28 @@ function toggleCard(cardId){
 renderTopics(primerParcial, 'topics-p1', 'p1');
 renderTopics(segundoParcial, 'topics-p2', 'p2');
 
-// ---------- CANAL REAL DE CADA VIDEO ----------
-// Muestra el nombre asignado en tu base de datos de manera directa y segura.
-document.querySelectorAll('.video-card').forEach((el) => {
-  const canalElement = el.querySelector('.canal');
-  if (canalElement) {
-    // Convierte el identificador interno (ej: "julioprofe") a un formato más estético si lo deseas, o déjalo igual
-    const nombreCanal = canalElement.textContent;
-    canalElement.textContent = nombreCanal.toUpperCase();
+// ---------- CANAL REAL DE CADA VIDEO (vía oEmbed de YouTube) ----------
+// Consulta el nombre oficial del canal directamente a YouTube, sin adivinar ni inventar nombres.
+const canalCache = {};
+async function cargarCanalReal(vid){
+  if(canalCache[vid]) return canalCache[vid];
+  try{
+    const res = await fetch(https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${vid}&format=json);
+    if(!res.ok) throw new Error('no ok');
+    const data = await res.json();
+    canalCache[vid] = data.author_name || null;
+    return canalCache[vid];
+  }catch(e){
+    return null;
   }
+}
+
+document.querySelectorAll('.canal[data-vid]').forEach(async (el) => {
+  const vid = el.getAttribute('data-vid');
+  const nombre = await cargarCanalReal(vid);
+  el.textContent = nombre ? nombre : 'Ver canal en YouTube';
 });
+</script>
+
+</body>
+</html>
